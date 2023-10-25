@@ -1,1 +1,4 @@
 line 1 from branch_c
+
+line 1 from branch_b
+
