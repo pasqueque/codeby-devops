@@ -1,0 +1,596 @@
+Script started on 2023-11-01 23:26:58+04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="94" LINES="44"]
+                                                                                              ]0;kali@pasqueque-kali: ~[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4md[24m[4md[24m[38;2;153;153;153mf -h[39m[4md[39m[4mp[24m[39m [39m [39m [4md[4mp[4mk[24m[24m[36md[24m[36mp[24m[36mk[36mg[39m [32m-[39m[32m-[32ml[39m [1m[34m|[0m[39m [4mg[24m[4mg[4mr[24m[4mr[4me[24m[24m[36mg[24m[36mr[24m[36me[36mp[39m [1mn[0m[1mn[1mg[0m[1mg[1mi[0m[1mi[1mn[0m[1mn[1mx[0m[?1l>[?2004l[0mn[0mg[0mi[0mn[0mx
+ii  [01;31m[Knginx[m[K                                 1.24.0-2                         amd64        small, powerful, scalable web/proxy server
+ii  [01;31m[Knginx[m[K-common                          1.24.0-2                         all          small, powerful, scalable web/proxy server - common files
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[36mdpkg[39m [32m-l[39m [1m[34m|[0m[39m [36mgrep[39m [1mnginx[0m[20D[36me[36mx[36mi[36mt[39m [39m [39m  [0m[39m  [39m [39m [39m [39m  [0m [0m [0m [0m [0m [16D[36mj[36ma[36mv[36ma[39m [32m-version[39m[13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[36me[36mx[36mi[36mt[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[36md[36mp[36mk[36mg[39m [32m-l[39m [1m[34m|[0m[39m [36mgrep[39m [1mnginx[0m[20D[39m [39m [39m [39m  [39m [39m  [0m[39m  [39m [39m [39m [39m  [0m [0m [0m [0m [0m [20D[36mdpkg[39m [32m-l[39m [1m[34m|[0m[39m [36mgrep[39m [1mnginx[0m[20D[36me[36mx[36mi[36mt[39m [39m [39m  [0m[39m  [39m [39m [39m [39m  [0m [0m [0m [0m [0m [16D[36mj[36ma[36mv[36ma[39m [32m-version[39m[13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[36me[36mx[36mi[36mt[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[36mj[36ma[36mv[36ma[39m [32m-version[39m[13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[36me[36mx[36mi[36mt[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[36md[36mp[36mk[36mg[39m [32m-l[39m [1m[34m|[0m[39m [36mgrep[39m [1mnginx[0m[20D[39m [39m [39m [39m  [39m [39m  [0m[39m  [39m [39m [39m [39m  [0m [0m [0m [0m [0m [20D[36mdpkg[39m [32m-l[39m [1m[34m|[0m[39m [36mgrep[39m [1mnginx[0m[20D[36me[36mx[36mi[36mt[39m [39m [39m  [0m[39m  [39m [39m [39m [39m  [0m [0m [0m [0m [0m [16D[36mj[36ma[36mv[36ma[39m [32m-version[39m[13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[36me[36mx[36mi[36mt[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[36mj[36ma[36mv[36ma[39m [32m-version[39m[13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[36ms[36mc[36mr[36mi[36mp[36mt[39m[39m [39m[1mj[39m[1ma[39m[1mv[39m[1ma[39m[1m-[39m[1ml[1mog.txt[0m[19D[36mj[36ma[36mv[36ma[39m[39m [32m-[32mv[0m[32me[0m[32mr[0m[32ms[0m[32mi[0m[32mo[0m[32mn[39m[0m [0m [0m [0m [0m [0m [13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[5P[33C     [33D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m[39m [36mu[36mp[36md[36ma[2C[36m-[36ma[36ml[36mt[36me[36mr[36mn[36ma[36mt[36mi[36mv[36me[36ms[39m[39m [32m-[32m-[32mi[32mn[0m[32ms[0m[32mt[0m[32ma[0m[32ml[32ml[39m [1m/usr/bin/java[0m java [1m/usr/local/jdk-21.0.1/bin/java[0m 2[86D[24m[36mc[24m[36ma[24m[36mt[39m[24m[39m R[39mE[39mA[39mD[39mM[39mE[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m       [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m   [76D[10D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me-alternatives[39m [32m--install[39m [1m/usr/bin/java[0m java [1m/usr/local/jdk-21.0.1/bin/java[0m 2[86D[5P[22C[32mc[32mo[32mn[32mf[32mi[32mg[39m[39m [1mj[1ma[1mv[1ma[0m[0m [0m [0m [0m [0m [0m [0m [0m [0m [0m       [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m [0m        [53D[33D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m[39m [36mu[36mp[36md[36ma[2C[36m-[36ma[36ml[36mt[36me[36mr[36mn[36ma[36mt[36mi[36mv[36me[36ms[39m[39m [32m-[32m-[32mc[32mo[0m[32mn[0m[32mf[0m[32mi[0m[32mg[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[36ms[36mc[36mr[36mi[36mp[36mt[39m[39m [39m[1mj[39m[1ma[39m[1mv[39m[1ma[39m[1m-[39m[1ml[1mog.txt[0m[19D[36mj[36ma[36mv[36ma[39m[39m [32m-[32mv[0m[32me[0m[32mr[0m[32ms[0m[32mi[0m[32mo[0m[32mn[39m[0m [0m [0m [0m [0m [0m [13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[36me[36mx[36mi[36mt[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[36mj[36ma[36mv[36ma[39m [32m-version[39m[13D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m [36mu[36mp[36md[36ma[36mt[36me[36m-[36ma[36mlternatives[39m [32m--config[39m [1mjava[0m[38D[24m[36mj[24m[36ma[24m[36mv[24m[36ma[39m [32m-[32mv[32me[32mr[32ms[32mi[32mo[32mn[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m  [0m [0m [0m [0m [25D[13D[36me[36mx[36mi[36mt[39m [39m [39m [39m [39m [39m [39m [39m [39m [9D[36md[36mp[36mk[36mg[39m [32m-l[39m [1m[34m|[0m[39m [36mgrep[39m [1mnginx[0m[20D[39m [39m [39m [39m  [39m [39m  [0m[39m  [39m [39m [39m [39m  [0m [0m [0m [0m [0m [20D[4ms[24m[4ms[24m[38;2;153;153;153mudo update-alternatives --config java[39m[37D[24m[36ms[36mu[39m[39m[4ms[39m[4mu[39m[4md[24m[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m[39m [39m[4ms[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [32D[38;2;153;153;153mu[39m[4ms[39m[4my[24m[38;2;153;153;153mstemctl status ssh.service[39m[26D[4my[39m[4ms[24m[24m[36ms[24m[36my[24m[36ms[36mt[36me[36mm[36mc[36mt[36ml[39m[39m [39ms[39mt[39ma[39mt[39mu[39ms[39m [39ms[39ms[39mh[39m.[39ms[39me[39mr[39mv[39mi[39mc[39me.service [9D.service [9D.service [9Dh.service[8Dg.service[8Di.service[8Dn.service[8Dx.service[8D.service [9D.service [9D.service [9D.service [9D.service [9Dn.service[8Dg.service[8Di.service[8Dn.service[8Dx.service[8D[?1l>[?2004l
+[sudo] password for kali: 
+[?1h=○ nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://pasqueque-kali/lib/systemd/system/nginx.service/lib/systemd/system/nginx.service]8;;; [0;1;38;5;185mdisabled[0m; preset: [0;1;38;5;185mdisabled[0m)[m
+     Active: inactive (dead)[m
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;[m
+[K[?1l>                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4m[32msudo[24m[39m [36msystemctl[39m status nginx.service[P[15C [16D[P[15C [16D[P[15C [16D[P[15C [16D[1C[P[14C [15D[P[14C [15Di nginx.service[14Ds nginx.service[14D- nginx.service[14De nginx.service[14Db nginx.service[14D[P[14C [15Dn nginx.service[14Da nginx.service[14Db nginx.service[14Dl nginx.service[14De nginx.service[14Dd nginx.service[14D[?1l>[?2004l
+disabled
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4mc[24m[4mc[24m[38;2;153;153;153mat README[39m[9D[4mc[39m[4ma[24m[24m[36mc[24m[36ma[36mt[39m[39m[4mc[39m[4ma[24m[39m [39m [39m [39m [39m [39m [39m [39m [8D[38;2;153;153;153mt README[39m[8D[4mc[24m[24m [39m [39m [39m [39m [39m [39m [39m [39m [9D[4mc[24m[38;2;153;153;153mat README[39m[9D[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[36ml[39m[36ml[39m[38;2;153;153;153ms -la[39m[36ml[36ms[39m[39m [32m-[39m[32m-[32ml[39m[32ml[32ma[39m [38;2;153;153;153m/usr/local[39m[10D[39m[1m/[0m[1m/[39m[1mu[0m[1m/[0m[0m [39m [39m [39m [39m [39m [39m [39m [39m [9D[38;2;153;153;153musr/local[39m[9D[1m/[39m[1ml[0m[39m [39m [39m [39m [39m [39m [39m [39m [8D[1ml[1mi[0m[1mi[1mb[0m[1mb[1m/[0m[1m/[1ms[0m[1ms[1my[0m[1my[1ms[0m[1ms[1mt[0m[1mt[1me[0m[1me[1mm[0m[1mm[1md[0m[1md[1m/[0m[1m/[1ms[0m[14D[0m/[0ml[0mi[0mb[0m/[0ms[0my[0ms[0mt[0me[0mm[0md[0m/[0mse[22D[39ml[39ms [39m-[39ml[39ma[16C
+[JCompleting `file'[A[0m[27m[24m[0m[39m[4Cls -la /lib/systemd/se[K[0m[39m[22D[36ml[36ms[39m [32m-[32ml[32ma[39m[16Crvice[?1l>[?2004l
+[Jls: cannot access '/lib/systemd/service': No such file or directory
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[36mls[39m [32m-la[39m /lib/systemd/service [38;2;153;153;153me[39m [39m [38;2;153;153;153mce[39m [39m [39m [38;2;153;153;153mice[39m [39m [39m [39m [38;2;153;153;153mvice[39m [39m [39m [39m [39m [38;2;153;153;153mrvice[39m[15D[1m/[1ml[1mi[1mb[1m/[1ms[1my[1ms[1mt[1me[1mm[1md[1m/[1ms[0m [39m [39m [39m [39m [39m [38;2;153;153;153mervice[39m[1m/[0m[0m [39m [39m [39m [39m [39m [39m [38;2;153;153;153mservice[39m[39m [39m [39m [39m [39m [39m [39m [?1l>[?2004l
+total 3456
+drwxr-xr-x 15 root root    4096 Oct 31 00:52 [0m[01;34m.[0m
+drwxr-xr-x 78 root root    4096 Nov  1 22:34 [01;34m..[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:45 [01;34mcatalog[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:45 [01;34mjournald.conf.d[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:46 [01;34mnetwork[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:52 [01;34mntp-units.d[0m
+-rw-r--r--  1 root root     710 Jul 28 12:26 resolv.conf
+drwxr-xr-x 31 root root   20480 Nov  1 23:17 [01;34msystem[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:56 [01;34msystem-generators[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:45 [01;34msystem-preset[0m
+drwxr-xr-x  2 root root    4096 Jul 28 13:01 [01;34msystem-shutdown[0m
+drwxr-xr-x  2 root root    4096 Jul 28 13:01 [01;34msystem-sleep[0m
+-rwxr-xr-x  1 root root   96640 Jul 28 13:01 [01;32msystemd[0m
+-rwxr-xr-x  1 root root   35192 Jul 28 13:01 [01;32msystemd-backlight[0m
+-rwxr-xr-x  1 root root   18808 Jul 28 13:01 [01;32msystemd-battery-check[0m
+-rwxr-xr-x  1 root root   22904 Jul 28 13:01 [01;32msystemd-binfmt[0m
+-rwxr-xr-x  1 root root   14712 Jul 28 13:01 [01;32msystemd-boot-check-no-failures[0m
+-rwxr-xr-x  1 root root   14640 Jul 28 13:01 [01;32msystemd-cgroups-agent[0m
+-rwxr-xr-x  1 root root   76632 Jul 28 13:01 [01;32msystemd-cryptsetup[0m
+-rwxr-xr-x  1 root root   27008 Jul 28 13:01 [01;32msystemd-fsck[0m
+-rwxr-xr-x  1 root root   27000 Jul 28 13:01 [01;32msystemd-fsckd[0m
+-rwxr-xr-x  1 root root   22904 Jul 28 13:01 [01;32msystemd-growfs[0m
+-rwxr-xr-x  1 root root   14640 Jul 28 13:01 [01;32msystemd-hibernate-resume[0m
+-rwxr-xr-x  1 root root   47504 Jul 28 13:01 [01;32msystemd-hostnamed[0m
+-rwxr-xr-x  1 root root   22904 Jul 28 13:01 [01;32msystemd-initctl[0m
+-rwxr-xr-x  1 root root   22984 Jul 28 13:01 [01;32msystemd-integritysetup[0m
+-rwxr-xr-x  1 root root  193552 Jul 28 13:01 [01;32msystemd-journald[0m
+-rwxr-xr-x  1 root root   51600 Jul 28 13:01 [01;32msystemd-localed[0m
+-rwxr-xr-x  1 root root  277000 Jul 28 13:01 [01;32msystemd-logind[0m
+-rwxr-xr-x  1 root root   14640 Jul 28 13:01 [01;32msystemd-makefs[0m
+-rwxr-xr-x  1 root root   47800 Jul 28 13:01 [01;32msystemd-measure[0m
+-rwxr-xr-x  1 root root   18928 Jul 28 13:01 [01;32msystemd-modules-load[0m
+-rwxr-xr-x  1 root root   39288 Jul 28 13:01 [01;32msystemd-network-generator[0m
+-rwxr-xr-x  1 root root 1645184 Jul 28 13:01 [01;32msystemd-networkd[0m
+-rwxr-xr-x  1 root root   35360 Jul 28 13:01 [01;32msystemd-networkd-wait-online[0m
+-rwxr-xr-x  1 root root   23088 Jul 28 13:01 [01;32msystemd-pcrphase[0m
+-rwxr-xr-x  1 root root   22928 Jul 28 13:01 [01;32msystemd-pstore[0m
+-rwxr-xr-x  1 root root   14712 Jul 28 13:01 [01;32msystemd-quotacheck[0m
+-rwxr-xr-x  1 root root   27008 Jul 28 13:01 [01;32msystemd-random-seed[0m
+-rwxr-xr-x  1 root root   18736 Jul 28 13:01 [01;32msystemd-remount-fs[0m
+-rwxr-xr-x  1 root root   14640 Jul 28 13:01 [01;32msystemd-reply-password[0m
+-rwxr-xr-x  1 root root   22904 Jul 28 13:01 [01;32msystemd-rfkill[0m
+-rwxr-xr-x  1 root root   51584 Jul 28 13:01 [01;32msystemd-shutdown[0m
+-rwxr-xr-x  1 root root   31104 Jul 28 13:01 [01;32msystemd-sleep[0m
+-rwxr-xr-x  1 root root   31112 Jul 28 13:01 [01;32msystemd-socket-proxyd[0m
+-rwxr-xr-x  1 root root   18808 Jul 28 13:01 [01;32msystemd-sulogin-shell[0m
+-rwxr-xr-x  1 root root   23024 Jul 28 13:01 [01;32msystemd-sysctl[0m
+lrwxrwxrwx  1 root root      41 Jul 28 13:01 [01;36msystemd-sysroot-fstab-check[0m -> [01;32msystem-generators/systemd-fstab-generator[0m
+-rwxr-xr-x  1 root root    1360 Jul  7 02:57 [01;32msystemd-sysv-install[0m
+-rwxr-xr-x  1 root root   18736 Jul 28 13:01 [01;32msystemd-time-wait-sync[0m
+-rwxr-xr-x  1 root root   43408 Jul 28 13:01 [01;32msystemd-timedated[0m
+-rwxr-xr-x  1 root root   55520 Jul 28 13:01 [01;32msystemd-timesyncd[0m
+lrwxrwxrwx  1 root root      12 Jul 28 13:01 [01;36msystemd-udevd[0m -> [01;32m/bin/udevadm[0m
+-rwxr-xr-x  1 root root   22904 Jul 28 13:01 [01;32msystemd-update-utmp[0m
+-rwxr-xr-x  1 root root   22904 Jul 28 13:01 [01;32msystemd-user-runtime-dir[0m
+-rwxr-xr-x  1 root root   14640 Jul 28 13:01 [01;32msystemd-user-sessions[0m
+-rwxr-xr-x  1 root root   27232 Jul 28 13:01 [01;32msystemd-veritysetup[0m
+-rwxr-xr-x  1 root root   18736 Jul 28 13:01 [01;32msystemd-volatile-root[0m
+-rwxr-xr-x  1 root root   14640 Jul 28 13:01 [01;32msystemd-xdg-autostart-condition[0m
+-rwxr-xr-x  1 root root   49337 Jul 28 13:01 [01;32mukify[0m
+drwxr-xr-x 10 root root    4096 Oct 31 00:57 [01;34muser[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:54 [01;34muser-environment-generators[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:45 [01;34muser-generators[0m
+drwxr-xr-x  2 root root    4096 Oct 31 00:45 [01;34muser-preset[0m
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[36mls[39m [32m-la[39m [1m/lib/systemd/[0m[1md[0m[0m [38;2;153;153;153m/[39m[1md[39m[1m/[0m[1m/[1m/[0m[1m/[0m[0m [1m/[1ms[0m[38;2;153;153;153mervice[39m[1ms[39m[1my[0m[39m [39m [39m [39m [39m [1my[1ms[0m[1ms[1mtem[0m[?1l>[?2004l
+total 1172
+drwxr-xr-x 31 root root 20480 Nov  1 23:17  [0m[01;34m.[0m
+drwxr-xr-x 15 root root  4096 Oct 31 00:52  [01;34m..[0m
+-rw-r--r--  1 root root   515 Jun 13 18:56  ModemManager.service
+-rw-r--r--  1 root root   652 Jun 28 17:22  NetworkManager-dispatcher.service
+-rw-r--r--  1 root root  1148 Jun 28 17:22  NetworkManager-wait-online.service
+-rw-r--r--  1 root root  1336 Jun 28 17:22  NetworkManager.service
+-rw-r--r--  1 root root  1162 Feb 14  2023  apparmor.service
+-rw-r--r--  1 root root   389 Aug  2 16:30  apt-daily-upgrade.service
+-rw-r--r--  1 root root   184 Aug  2 16:30  apt-daily-upgrade.timer
+-rw-r--r--  1 root root   326 Aug  2 16:30  apt-daily.service
+-rw-r--r--  1 root root   156 Aug  2 16:30  apt-daily.timer
+lrwxrwxrwx  1 root root    14 Jul 28 13:01  [01;36mautovt@.service[0m -> getty@.service
+-rw-r--r--  1 root root  1044 Apr 19  2023  avahi-daemon.service
+-rw-r--r--  1 root root   870 Apr 19  2023  avahi-daemon.socket
+-rw-r--r--  1 root root   927 Jul 28 12:26  basic.target
+-rw-r--r--  1 root root   472 Jul 28 12:26  blockdev@.target
+-rw-r--r--  1 root root   197 Jan  3  2023  blueman-mechanism.service
+-rw-r--r--  1 root root   760 Nov 30  2022  bluetooth.service
+-rw-r--r--  1 root root   435 Jul 28 12:26  bluetooth.target
+-rw-r--r--  1 root root   463 Jul 28 12:26  boot-complete.target
+-rw-r--r--  1 root root   295 Mar  2  2023  colord.service
+-rw-r--r--  1 root root  1153 Jul 28 13:01  console-getty.service
+-rw-r--r--  1 root root   343 Jun 21 23:20  console-setup.service
+-rw-r--r--  1 root root  1305 Jul 28 13:01  container-getty@.service
+-rw-r--r--  1 root root   316 Jul 26 17:00  cron.service
+lrwxrwxrwx  1 root root     9 Jul 28 13:01  [01;36mcryptdisks-early.service[0m -> [40;33;01m/dev/null[0m
+lrwxrwxrwx  1 root root     9 Jul 28 13:01  [01;36mcryptdisks.service[0m -> [40;33;01m/dev/null[0m
+-rw-r--r--  1 root root   473 Jul 28 12:26  cryptsetup-pre.target
+-rw-r--r--  1 root root   420 Jul 28 12:26  cryptsetup.target
+lrwxrwxrwx  1 root root    13 Jul 28 13:01  [01;36mctrl-alt-del.target[0m -> reboot.target
+lrwxrwxrwx  1 root root    25 Jul 28 13:01  [01;36mdbus-org.freedesktop.hostname1.service[0m -> systemd-hostnamed.service
+lrwxrwxrwx  1 root root    23 Jul 28 13:01  [01;36mdbus-org.freedesktop.locale1.service[0m -> systemd-localed.service
+lrwxrwxrwx  1 root root    22 Jul 28 13:01  [01;36mdbus-org.freedesktop.login1.service[0m -> systemd-logind.service
+lrwxrwxrwx  1 root root    25 Jul 28 13:01  [01;36mdbus-org.freedesktop.timedate1.service[0m -> systemd-timedated.service
+-rw-r--r--  1 root root   410 Jul 11 21:38  dbus.service
+-rw-r--r--  1 root root   102 Jul 11 21:38  dbus.socket
+-rw-r--r--  1 root root  1102 Jul 28 13:01  debug-shell.service
+lrwxrwxrwx  1 root root    16 Jul 28 13:01  [01;36mdefault.target[0m -> graphical.target
+-rw-r--r--  1 root root   775 Jul 28 12:26  dev-hugepages.mount
+-rw-r--r--  1 root root   701 Jul 28 12:26  dev-mqueue.mount
+-rw-r--r--  1 root root   147 Jun 15 13:15  dpkg-db-backup.service
+-rw-r--r--  1 root root   138 Jun 15 13:15  dpkg-db-backup.timer
+-rw-r--r--  1 root root   438 Mar  5  2023  e2scrub@.service
+-rw-r--r--  1 root root   297 Mar  5  2023  e2scrub_all.service
+-rw-r--r--  1 root root   251 Mar  5  2023  e2scrub_all.timer
+-rw-r--r--  1 root root   245 Mar  5  2023  e2scrub_fail@.service
+-rw-r--r--  1 root root   553 Mar  5  2023  e2scrub_reap.service
+-rw-r--r--  1 root root   805 Jul 28 13:01  emergency.service
+-rw-r--r--  1 root root   479 Jul 28 12:26  emergency.target
+-rw-r--r--  1 root root   549 Jul 28 12:26  exit.target
+-rw-r--r--  1 root root   410 Jul 28 12:26  factory-reset.target
+-rw-r--r--  1 root root   500 Jul 28 12:26  final.target
+-rw-r--r--  1 root root   461 Jul 28 12:26  first-boot-complete.target
+-rw-r--r--  1 root root   477 Aug 11 20:52  fstrim.service
+-rw-r--r--  1 root root   283 Aug 11 20:52  fstrim.timer
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34mgdm.service.d[0m
+-rw-r--r--  1 root root   518 Jul 28 12:26  getty-pre.target
+-rw-r--r--  1 root root   366 Jul  7 02:57  getty-static.service
+-rw-r--r--  1 root root   509 Jul 28 12:26  getty.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34mgetty.target.wants[0m
+-rw-r--r--  1 root root  2054 Jul 28 13:01  getty@.service
+-rw-r--r--  1 root root   606 Jul 28 12:26  graphical.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34mgraphical.target.wants[0m
+-rw-r--r--  1 root root   542 Jul 28 12:26  halt.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34mhalt.target.wants[0m
+-rw-r--r--  1 root root   943 Jan 14  2021  haveged.service
+-rw-r--r--  1 root root   526 Jul 28 12:26  hibernate.target
+lrwxrwxrwx  1 root root     9 Jul 28 13:01  [01;36mhwclock.service[0m -> [40;33;01m/dev/null[0m
+-rw-r--r--  1 root root   538 Jul 28 12:26  hybrid-sleep.target
+-rw-r--r--  1 root root   552 Sep 14  2021  ifup@.service
+-rw-r--r--  1 root root   442 Sep 14  2021  ifupdown-pre.service
+-rw-r--r--  1 root root   279 Sep 14  2021  ifupdown-wait-online.service
+-rw-r--r--  1 root root   670 Jul 28 12:26  initrd-cleanup.service
+-rw-r--r--  1 root root   598 Jul 28 12:26  initrd-fs.target
+-rw-r--r--  1 root root  1247 Jul 28 13:01  initrd-parse-etc.service
+-rw-r--r--  1 root root   566 Jul 28 12:26  initrd-root-device.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34minitrd-root-device.target.wants[0m
+-rw-r--r--  1 root root   571 Jul 28 12:26  initrd-root-fs.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34minitrd-root-fs.target.wants[0m
+-rw-r--r--  1 root root   614 Jul 28 12:26  initrd-switch-root.service
+-rw-r--r--  1 root root   779 Jul 28 12:26  initrd-switch-root.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34minitrd-switch-root.target.wants[0m
+-rw-r--r--  1 root root   823 Jul 28 12:26  initrd-udevadm-cleanup-db.service
+-rw-r--r--  1 root root   571 Jul 28 12:26  initrd-usr-fs.target
+-rw-r--r--  1 root root   810 Jul 28 12:26  initrd.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34minitrd.target.wants[0m
+-rw-r--r--  1 root root   487 Jul 28 12:26  integritysetup-pre.target
+-rw-r--r--  1 root root   430 Jul 28 12:26  integritysetup.target
+-rw-r--r--  1 root root   207 Aug  5 22:02  ipp-usb.service
+lrwxrwxrwx  1 root root    26 Jun 18 13:53  [01;36mipsec.service[0m -> strongswan-starter.service
+-rw-r--r--  1 root root   549 Jul 28 12:26  kexec.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34mkexec.target.wants[0m
+-rw-r--r--  1 root root   287 Jun 21 23:20  keyboard-setup.service
+-rw-r--r--  1 root root   701 Jul 28 13:01  kmod-static-nodes.service
+lrwxrwxrwx  1 root root    28 Jul 28 13:01  [01;36mkmod.service[0m -> systemd-modules-load.service
+-rw-r--r--  1 root root   517 Jul  4 00:48  lightdm.service
+-rw-r--r--  1 root root   199 Apr  5  2014  lm-sensors.service
+-rw-r--r--  1 root root   453 Jul 28 12:26  local-fs-pre.target
+-rw-r--r--  1 root root   556 Jul 28 12:26  local-fs.target
+drwxr-xr-x  2 root root  4096 Jul 28 13:01  [01;34mlocal-fs.target.wants[0m
+-rw-r--r--  1 root root   870 Aug 21  2020  logrotate.service
+-rw-r--r--  1 root root   191 Oct 14  2019  logrotate.timer
+-rw-r--r--  1 root root   453 Jul 28 12:26  machine.slice
+-rw-r--r--  1 root root   738 Jul 24 15:46  man-db.service
+-rw-r--r--  1 root root   171 Jul 24 15:46  man-db.timer
+-rw-r--r--  1 root root   573 Jul 28 12:26  modprobe@.service
+-rw-r--r--  1 root root   540 Jul 28 12:26  multi-user.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34mmulti-user.target.wants[0m
+-rw-r--r--  1 root root   483 Jul 28 12:26  network-online.target
+-rw-r--r--  1 root root   490 Jul 28 12:26  network-pre.target
+-rw-r--r--  1 root root   499 Jul 28 12:26  network.target
+-rw-r--r--  1 root root   813 Jan 24  2023  networking.service
+-rw-r--r--  1 root root   458 Aug  3 17:55  nftables.service
+-rw-r--r--  1 root root  1083 Oct 11 03:17  nginx.service
+-rw-r--r--  1 root root  2130 Jun 28 17:22  nm-priv-helper.service
+-rw-r--r--  1 root root   562 Jul 28 12:26  nss-lookup.target
+-rw-r--r--  1 root root   521 Jul 28 12:26  nss-user-lookup.target
+-rw-r--r--  1 root root   700 May 20 19:43  openvpn-client@.service
+-rw-r--r--  1 root root   822 May 20 19:43  openvpn-server@.service
+-rw-r--r--  1 root root   299 May 20 19:43  openvpn.service
+-rw-r--r--  1 root root   923 May 20 19:43  openvpn@.service
+-rw-r--r--  1 root root   327 Jan  4  2023  pam_namespace.service
+-rw-r--r--  1 root root   407 Jul 28 12:26  paths.target
+-rw-r--r--  1 root root   268 Jun  9 19:23  pcscd.service
+-rw-r--r--  1 root root   157 Jun  9 19:23  pcscd.socket
+-rw-r--r--  1 root root   441 Feb  1  2023  plymouth-halt.service
+-rw-r--r--  1 root root   455 Feb  1  2023  plymouth-kexec.service
+lrwxrwxrwx  1 root root    27 Feb  1  2023  [01;36mplymouth-log.service[0m -> plymouth-read-write.service
+-rw-r--r--  1 root root   450 Feb  1  2023  plymouth-poweroff.service
+-rw-r--r--  1 root root   224 Feb  1  2023  plymouth-quit-wait.service
+-rw-r--r--  1 root root   218 Feb  1  2023  plymouth-quit.service
+-rw-r--r--  1 root root   268 Feb  1  2023  plymouth-read-write.service
+-rw-r--r--  1 root root   443 Feb  1  2023  plymouth-reboot.service
+-rw-r--r--  1 root root   583 Feb  1  2023  plymouth-start.service
+-rw-r--r--  1 root root   562 Feb  1  2023  plymouth-switch-root-initramfs.service
+-rw-r--r--  1 root root   315 Feb  1  2023  plymouth-switch-root.service
+lrwxrwxrwx  1 root root    21 Feb  1  2023  [01;36mplymouth.service[0m -> plymouth-quit.service
+-rw-r--r--  1 root root   759 Aug  8 19:16  polkit.service
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34mpostgresql@.service.d[0m
+-rw-r--r--  1 root root   607 Jul 28 12:26  poweroff.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34mpoweroff.target.wants[0m
+-rw-r--r--  1 root root   433 Jul 28 12:26  printer.target
+-rw-r--r--  1 root root   789 Jul 28 12:26  proc-sys-fs-binfmt_misc.automount
+-rw-r--r--  1 root root   711 Jul 28 12:26  proc-sys-fs-binfmt_misc.mount
+lrwxrwxrwx  1 root root    22 Jul 28 13:01  [01;36mprocps.service[0m -> systemd-sysctl.service
+lrwxrwxrwx  1 root root     9 Oct 16  2022  [01;36mpulseaudio-enable-autospawn.service[0m -> [40;33;01m/dev/null[0m
+-rw-r--r--  1 root root   626 Jul 28 13:01  quotaon.service
+-rw-r--r--  1 root root   731 Jul 28 13:01  rc-local.service
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34mrc-local.service.d[0m
+lrwxrwxrwx  1 root root     9 Jul 28 13:01  [01;36mrc.service[0m -> [40;33;01m/dev/null[0m
+lrwxrwxrwx  1 root root     9 Jul 28 13:01  [01;36mrcS.service[0m -> [40;33;01m/dev/null[0m
+-rw-r--r--  1 root root   598 Jul 28 12:26  reboot.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34mreboot.target.wants[0m
+-rw-r--r--  1 root root   313 Aug 10 20:16  regenerate-ssh-host-keys.service
+-rw-r--r--  1 root root   557 Jul 28 12:26  remote-cryptsetup.target
+-rw-r--r--  1 root root   454 Jul 28 12:26  remote-fs-pre.target
+-rw-r--r--  1 root root   530 Jul 28 12:26  remote-fs.target
+-rw-r--r--  1 root root   565 Jul 28 12:26  remote-veritysetup.target
+-rw-r--r--  1 root root   184 Jul 20 01:49  rescue-ssh.target
+-rw-r--r--  1 root root   796 Jul 28 13:01  rescue.service
+-rw-r--r--  1 root root   500 Jul 28 12:26  rescue.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34mrescue.target.wants[0m
+-rw-r--r--  1 root root   548 Jul 28 12:26  rpcbind.target
+-rw-r--r--  1 root root  1024 Feb 27  2023  rtkit-daemon.service
+lrwxrwxrwx  1 root root    15 Jul 28 13:01  [01;36mrunlevel0.target[0m -> poweroff.target
+lrwxrwxrwx  1 root root    13 Jul 28 13:01  [01;36mrunlevel1.target[0m -> rescue.target
+drwxr-xr-x  2 root root  4096 Jul 28 13:01  [01;34mrunlevel1.target.wants[0m
+lrwxrwxrwx  1 root root    17 Jul 28 13:01  [01;36mrunlevel2.target[0m -> multi-user.target
+drwxr-xr-x  2 root root  4096 Jul 28 13:01  [01;34mrunlevel2.target.wants[0m
+lrwxrwxrwx  1 root root    17 Jul 28 13:01  [01;36mrunlevel3.target[0m -> multi-user.target
+drwxr-xr-x  2 root root  4096 Jul 28 13:01  [01;34mrunlevel3.target.wants[0m
+lrwxrwxrwx  1 root root    17 Jul 28 13:01  [01;36mrunlevel4.target[0m -> multi-user.target
+drwxr-xr-x  2 root root  4096 Jul 28 13:01  [01;34mrunlevel4.target.wants[0m
+lrwxrwxrwx  1 root root    16 Jul 28 13:01  [01;36mrunlevel5.target[0m -> graphical.target
+drwxr-xr-x  2 root root  4096 Jul 28 13:01  [01;34mrunlevel5.target.wants[0m
+lrwxrwxrwx  1 root root    13 Jul 28 13:01  [01;36mrunlevel6.target[0m -> reboot.target
+lrwxrwxrwx  1 root root     9 Jul  9 21:16  [01;36msaned.service[0m -> [40;33;01m/dev/null[0m
+-rw-r--r--  1 root root   133 Aug 15  2018  saned.socket
+-rw-r--r--  1 root root   347 Sep 10  2020  saned@.service
+-rw-r--r--  1 root root  1571 Jul 28 13:01  serial-getty@.service
+-rw-r--r--  1 root root   457 Jul 28 12:26  shutdown.target
+-rw-r--r--  1 root root   410 Jul 28 12:26  sigpwr.target
+-rw-r--r--  1 root root   468 Jul 28 12:26  sleep.target
+-rw-r--r--  1 root root   462 Jul 28 12:26  slices.target
+-rw-r--r--  1 root root   428 Jul 28 12:26  smartcard.target
+-rw-r--r--  1 root root   409 Jul 28 12:26  sockets.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:51  [01;34msockets.target.wants[0m
+-rw-r--r--  1 root root   586 Jul 28 12:26  soft-reboot.target
+-rw-r--r--  1 root root   428 Jul 28 12:26  sound.target
+-rw-r--r--  1 root root  1133 Aug  6 22:16  speech-dispatcherd.service
+-rw-r--r--  1 root root   538 Jul 20 01:49  ssh.service
+-rw-r--r--  1 root root   196 Jul 20 01:49  ssh.socket
+-rw-r--r--  1 root root   244 Jun 18 13:53  strongswan-starter.service
+lrwxrwxrwx  1 root root     9 Jul 20 02:31  [01;36msudo.service[0m -> [40;33;01m/dev/null[0m
+-rw-r--r--  1 root root   585 Jul 28 12:26  suspend-then-hibernate.target
+-rw-r--r--  1 root root   511 Jul 28 12:26  suspend.target
+-rw-r--r--  1 root root   402 Jul 28 12:26  swap.target
+-rw-r--r--  1 root root  1146 Jul 28 12:26  sys-fs-fuse-connections.mount
+-rw-r--r--  1 root root  1111 Jul 28 12:26  sys-kernel-config.mount
+-rw-r--r--  1 root root   730 Jul 28 12:26  sys-kernel-debug.mount
+-rw-r--r--  1 root root   756 Jul 28 12:26  sys-kernel-tracing.mount
+-rw-r--r--  1 root root   574 Jul 28 12:26  sysinit.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:55  [01;34msysinit.target.wants[0m
+-rw-r--r--  1 root root  1415 Jul 28 12:26  syslog.socket
+-rw-r--r--  1 root root   468 Jul 28 12:26 'system-systemd\x2dcryptsetup.slice'
+-rw-r--r--  1 root root   463 Jul 28 12:26 'system-systemd\x2dveritysetup.slice'
+-rw-r--r--  1 root root  1525 Jul 28 12:26  system-update-cleanup.service
+-rw-r--r--  1 root root   551 Jul 28 12:26  system-update-pre.target
+-rw-r--r--  1 root root   625 Jul 28 12:26  system-update.target
+-rw-r--r--  1 root root   771 Jul 28 12:26  systemd-ask-password-console.path
+-rw-r--r--  1 root root   834 Jul 28 12:26  systemd-ask-password-console.service
+-rw-r--r--  1 root root   491 Feb  1  2023  systemd-ask-password-plymouth.path
+-rw-r--r--  1 root root   468 Feb  1  2023  systemd-ask-password-plymouth.service
+-rw-r--r--  1 root root   695 Jul 28 12:26  systemd-ask-password-wall.path
+-rw-r--r--  1 root root   747 Jul 28 12:26  systemd-ask-password-wall.service
+-rw-r--r--  1 root root   769 Jul 28 13:01  systemd-backlight@.service
+-rw-r--r--  1 root root   819 Jul 28 13:01  systemd-battery-check.service
+-rw-r--r--  1 root root  1205 Jul 28 13:01  systemd-binfmt.service
+-rw-r--r--  1 root root   726 Jul 28 13:01  systemd-boot-check-no-failures.service
+-rw-r--r--  1 root root  1045 Jul 28 12:26  systemd-confext.service
+-rw-r--r--  1 root root   564 Jul 28 12:26  systemd-exit.service
+-rw-r--r--  1 root root  1536 Jul 28 12:26  systemd-firstboot.service
+-rw-r--r--  1 root root   820 Jul 28 13:01  systemd-fsck-root.service
+-rw-r--r--  1 root root   756 Jul 28 13:01  systemd-fsck@.service
+-rw-r--r--  1 root root   551 Jul 28 13:01  systemd-fsckd.service
+-rw-r--r--  1 root root   540 Jul 28 13:01  systemd-fsckd.socket
+-rw-r--r--  1 root root   663 Jul 28 13:01  systemd-growfs-root.service
+-rw-r--r--  1 root root   660 Jul 28 13:01  systemd-growfs@.service
+-rw-r--r--  1 root root   562 Jul 28 12:26  systemd-halt.service
+-rw-r--r--  1 root root   551 Jul 28 13:01  systemd-hibernate.service
+-rw-r--r--  1 root root  1202 Jul 28 13:01  systemd-hostnamed.service
+-rw-r--r--  1 root root   572 Jul 28 13:01  systemd-hybrid-sleep.service
+-rw-r--r--  1 root root   574 Jul 28 13:01  systemd-initctl.service
+-rw-r--r--  1 root root   553 Jul 28 12:26  systemd-initctl.socket
+-rw-r--r--  1 root root   827 Jul 28 12:26  systemd-journal-flush.service
+-rw-r--r--  1 root root   724 Jul 28 12:26  systemd-journald-audit.socket
+-rw-r--r--  1 root root  1182 Jul 28 12:26  systemd-journald-dev-log.socket
+-rw-r--r--  1 root root   605 Jul 28 12:26  systemd-journald-varlink@.socket
+-rw-r--r--  1 root root  2261 Jul 28 13:01  systemd-journald.service
+-rw-r--r--  1 root root   934 Jul 28 12:26  systemd-journald.socket
+-rw-r--r--  1 root root  1454 Jul 28 13:01  systemd-journald@.service
+-rw-r--r--  1 root root   746 Jul 28 12:26  systemd-journald@.socket
+-rw-r--r--  1 root root   569 Jul 28 12:26  systemd-kexec.service
+-rw-r--r--  1 root root  1209 Jul 28 13:01  systemd-localed.service
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34msystemd-localed.service.d[0m
+-rw-r--r--  1 root root  2148 Jul 28 13:01  systemd-logind.service
+-rw-r--r--  1 root root   748 Jul 28 12:26  systemd-machine-id-commit.service
+-rw-r--r--  1 root root  1015 Jul 28 13:01  systemd-modules-load.service
+-rw-r--r--  1 root root   788 Jul 28 13:01  systemd-network-generator.service
+-rw-r--r--  1 root root   781 Jul 28 13:01  systemd-networkd-wait-online.service
+-rw-r--r--  1 root root   800 Jul 28 13:01  systemd-networkd-wait-online@.service
+-rw-r--r--  1 root root  2424 Jul 28 13:01  systemd-networkd.service
+-rw-r--r--  1 root root   682 Jul 28 12:26  systemd-networkd.socket
+-rw-r--r--  1 root root   827 Jul 28 13:01  systemd-pcrfs-root.service
+-rw-r--r--  1 root root   851 Jul 28 13:01  systemd-pcrfs@.service
+-rw-r--r--  1 root root   800 Jul 28 13:01  systemd-pcrmachine.service
+-rw-r--r--  1 root root   976 Jul 28 13:01  systemd-pcrphase-initrd.service
+-rw-r--r--  1 root root   878 Jul 28 13:01  systemd-pcrphase-sysinit.service
+-rw-r--r--  1 root root   840 Jul 28 13:01  systemd-pcrphase.service
+-rw-r--r--  1 root root   575 Jul 28 12:26  systemd-poweroff.service
+-rw-r--r--  1 root root   811 Jul 28 13:01  systemd-pstore.service
+-rw-r--r--  1 root root   679 Jul 28 13:01  systemd-quotacheck.service
+-rw-r--r--  1 root root  1179 Jul 28 13:01  systemd-random-seed.service
+-rw-r--r--  1 root root   568 Jul 28 12:26  systemd-reboot.service
+-rw-r--r--  1 root root   783 Jul 28 13:01  systemd-remount-fs.service
+-rw-r--r--  1 root root  1208 Jul 28 13:01  systemd-repart.service
+-rw-r--r--  1 root root   767 Jul 28 13:01  systemd-rfkill.service
+-rw-r--r--  1 root root   776 Jul 28 12:26  systemd-rfkill.socket
+-rw-r--r--  1 root root   588 Jul 28 12:26  systemd-soft-reboot.service
+-rw-r--r--  1 root root   619 Jul 28 13:01  systemd-suspend-then-hibernate.service
+-rw-r--r--  1 root root   552 Jul 28 13:01  systemd-suspend.service
+-rw-r--r--  1 root root   727 Jul 28 13:01  systemd-sysctl.service
+-rw-r--r--  1 root root  1046 Jul 28 12:26  systemd-sysext.service
+-rw-r--r--  1 root root  1221 Jul 28 12:26  systemd-sysusers.service
+-rw-r--r--  1 root root  1203 Jul 28 13:01  systemd-time-wait-sync.service
+-rw-r--r--  1 root root  1158 Jul 28 13:01  systemd-timedated.service
+-rw-r--r--  1 root root  1764 Jul 28 13:01  systemd-timesyncd.service
+-rw-r--r--  1 root root   747 Jul 28 12:26  systemd-tmpfiles-clean.service
+-rw-r--r--  1 root root   539 Jul 28 12:26  systemd-tmpfiles-clean.timer
+-rw-r--r--  1 root root   841 Jul 28 12:26  systemd-tmpfiles-setup-dev.service
+-rw-r--r--  1 root root   983 Jul 28 12:26  systemd-tmpfiles-setup.service
+-rw-r--r--  1 root root   863 Jul 28 12:26  systemd-udev-settle.service
+-rw-r--r--  1 root root   758 Jul 28 12:26  systemd-udev-trigger.service
+-rw-r--r--  1 root root   650 Jul 28 12:26  systemd-udevd-control.socket
+-rw-r--r--  1 root root   624 Jul 28 12:26  systemd-udevd-kernel.socket
+-rw-r--r--  1 root root  1320 Jul 28 13:01  systemd-udevd.service
+drwxr-xr-x  2 root root  4096 Oct 31 00:46  [01;34msystemd-udevd.service.d[0m
+-rw-r--r--  1 root root   845 Jul 28 13:01  systemd-update-utmp-runlevel.service
+-rw-r--r--  1 root root   848 Jul 28 13:01  systemd-update-utmp.service
+-rw-r--r--  1 root root   647 Jul 28 13:01  systemd-user-sessions.service
+-rw-r--r--  1 root root   739 Jul 28 13:01  systemd-volatile-root.service
+-rw-r--r--  1 root root   434 Jul 28 12:26  time-set.target
+-rw-r--r--  1 root root   487 Jul 28 12:26  time-sync.target
+-rw-r--r--  1 root root   458 Jul 28 12:26  timers.target
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34mtimers.target.wants[0m
+lrwxrwxrwx  1 root root    21 Jul 28 13:01  [01;36mudev.service[0m -> systemd-udevd.service
+-rw-r--r--  1 root root   207 Aug  1 10:20  udisks2.service
+-rw-r--r--  1 root root   465 Jul 28 12:26  umount.target
+-rw-r--r--  1 root root   994 Dec  7  2022  upower.service
+-rw-r--r--  1 root root   426 Jul 28 12:26  usb-gadget.target
+-rw-r--r--  1 root root   273 Jun  1  2022  usb_modeswitch@.service
+-rw-r--r--  1 root root   171 Aug  2 06:54  usbmuxd.service
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34muser-.slice.d[0m
+-rw-r--r--  1 root root   666 Jul 28 13:01  user-runtime-dir@.service
+-rw-r--r--  1 root root   440 Jul 28 12:26  user.slice
+-rw-r--r--  1 root root   830 Jul 28 13:01  user@.service
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34muser@.service.d[0m
+drwxr-xr-x  2 root root  4096 Oct 31 00:45  [01;34muser@0.service.d[0m
+-rw-r--r--  1 root root   481 Jul 28 12:26  veritysetup-pre.target
+-rw-r--r--  1 root root   427 Jul 28 12:26  veritysetup.target
+-rw-r--r--  1 root root   369 Apr 19  2023  virtualbox-guest-utils.service
+-rw-r--r--  1 root root   709 Dec 27  2022  vpnc@.service
+-rw-r--r--  1 root root   167 Jun 12 05:31  wacom-inputattach@.service
+-rw-r--r--  1 root root   484 Feb 24  2023  wpa_supplicant-nl80211@.service
+-rw-r--r--  1 root root   478 Feb 24  2023  wpa_supplicant-wired@.service
+-rw-r--r--  1 root root   432 Feb 24  2023  wpa_supplicant.service
+-rw-r--r--  1 root root   446 Feb 24  2023  wpa_supplicant@.service
+lrwxrwxrwx  1 root root     9 Jul 28 13:01  [01;36mx11-common.service[0m -> [40;33;01m/dev/null[0m
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4mc[24m[4mc[24m[38;2;153;153;153mat README[39m[9D[4mc[39m[4ma[24m[24m[36mc[24m[36ma[36mt[39m[39m [39m[1mn[0m[39m [39m [39m [39m [39m [1mn[1mg[0m[0mn[0mgn[1mn[1mg[0m [1mg[1mi[0m[1mi[1mn[0m[1mn[1mx-log.txt[0m[1m [0m[0m [1mx[0m[0m [1mt[0m[0m [1m.[0m[0m [1mg[0m[0m [1mo[0m[0m [1ml[0m[0m [1m-[0m[0m [1mx[0m[0m [1mn[0m[0m [1mi[0m[0m [1mg[0m[0m [1mn[0m[0m [0m [38;2;153;153;153mREADME[39m[39m [39m [39m [39m [39m [39m [38;2;153;153;153m README[39m[39m[4mc[39m[4ma[24m[39m [39m [39m [39m [39m [39m [39m [39m [8D[38;2;153;153;153mt README[39m[8D[4mc[24m[24m [39m [39m [39m [39m [39m [39m [39m [39m [9D[4mc[24m[38;2;153;153;153mat README[39m[9D[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[36mls[39m [32m-la[39m [1m/lib/systemd/system[0m[1mm[1m/[0m[1m/[1mn[0m[1mn[1mg[0m[1mg[1mi[0m[1mi[1mnx.service[0m[1m [0m[0m [32ml[39m[P[34C [35D[32m-[39m[P[34C [35D[P[34C [35D[P[33C [35D[36ml[39m[P[34C [35D[P[34C [35D[4mc[24m[0m [1m/[1ml[1mi[1mb[1m/[1ms[1my[1ms[1mt[1me[1mm[1md[1m/[1ms[1my[1ms[1mt[1me[1mm[1m/[1mn[1mg[1mi[1mn[1mx[1m.[1ms[1me[1mr[1mv[1mi[1mc[1me[0m[34D[4mc[4ma[24m[0m [1m/[1ml[1mi[1mb[1m/[1ms[1my[1ms[1mt[1me[1mm[1md[1m/[1ms[1my[1ms[1mt[1me[1mm[1m/[1mn[1mg[1mi[1mn[1mx[1m.[1ms[1me[1mr[1mv[1mi[1mc[1me[0m[34D[24m[36mc[24m[36ma[36mt[39m[0m [1m/[1ml[1mi[1mb[1m/[1ms[1my[1ms[1mt[1me[1mm[1md[1m/[1ms[1my[1ms[1mt[1me[1mm[1m/[1mn[1mg[1mi[1mn[1mx[1m.[1ms[1me[1mr[1mv[1mi[1mc[1me[0m[34D[?1l>[?2004l
+# Stop dance for nginx
+# =======================
+#
+# ExecStop sends SIGQUIT (graceful stop) to the nginx process.
+# If, after 5s (--retry QUIT/5) nginx is still running, systemd takes control
+# and sends SIGTERM (fast shutdown) to the main process.
+# After another 5s (TimeoutStopSec=5), and if nginx is alive, systemd sends
+# SIGKILL to all the remaining processes in the process group (KillMode=mixed).
+#
+# nginx signals reference doc:
+# http://nginx.org/en/docs/control.html
+#
+[Unit]
+Description=A high performance web server and a reverse proxy server
+Documentation=man:nginx(8)
+After=network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4ms[24m[4ms[24m[38;2;153;153;153mudo systemctl is-enabled nginx.service[39m[38D[24m[36ms[36mu[39m[39m[4ms[39m[4mu[39m[4md[24m[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m[39m [36ms[36my[36ms[36mt[36me[36mm[36mc[36mt[36ml[39m[39m [39mi[39ms[39m-[39me[39mn[39ma[39mb[39ml[39me[39md[39m [39mn[39mg[39mi[39mn[39mx[39m.[39ms[39me[39mr[39mv[39mi[39mc[39me[P[21C [22D[P[21C [22D[P[21C [22D[1C[1C[1C[1C[1C[1C[1C[P[14C [15D[P[14C [15De nginx.service[14D[?1l>[?2004l
+Synchronizing state of nginx.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable nginx
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_TIME = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_PAPER = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_TIME = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_PAPER = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_TIME = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_PAPER = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_TIME = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_PAPER = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.service.
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4m[32msudo[24m[39m [36msystemctl[39m enable nginx.service[35D[24m[36mc[24m[36ma[24m[36mt[39m[24m[39m [1m/[39m[1ml[39m[1mi[39m[1mb[39m[1m/[39m[1ms[39m[1my[39m[1ms[39m[1mt[39m[1me[1mm[1md[1m/[1ms[1my[1ms[1mt[1me[1mm[1m/[1mn[1mg[1mi[1mn[1mx[1m.[1ms[1me[1mr[1mv[1mi[1mce[0m[37D[4m[32ms[4m[32mu[4m[32md[4m[32mo[24m[39m[0m [0m[36ms[0m[36my[0m[36ms[0m[36mt[0m[36me[0m[36mm[0m[36mc[0m[36mt[0m[36ml[39m[0m [0me[0mn[0ma[0mb[0ml[0me[0m [0mn[0mg[0mi[0mn[0mx[0m.[0ms[0me[0mr[0mv[0mi[0mc[0me[0m [0m [P[14C [15D[P[14C [15D[P[14C [15D[P[14C [15D[P[14C [15D[P[14C [15Ds nginx.service[14Dt nginx.service[14Da nginx.service[14Dt nginx.service[14Du nginx.service[14Ds nginx.service[14D[?1l>[?2004l
+[?1h=○ nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://pasqueque-kali/lib/systemd/system/nginx.service/lib/systemd/system/nginx.service]8;;; [0;1;32menabled[0m; preset: [0;1;38;5;185mdisabled[0m)[m
+     Active: inactive (dead)[m
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;[m
+[K[?1l>                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4m[32msudo[24m[39m [36msystemctl[39m status nginx.service[1C[P[14C [15D[P[14C [15D[P[14C [15Dr nginx.service[14Dt nginx.service[14D[?1l>[?2004l
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4m[32msudo[24m[39m [36msystemctl[39m start nginx.service[16Dtus nginx.service[?1l>[?2004l
+[?1h=[0;1;32m●[0m nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://pasqueque-kali/lib/systemd/system/nginx.service/lib/systemd/system/nginx.service]8;;; [0;1;32menabled[0m; preset: [0;1;38;5;185mdisabled[0m)[m
+     Active: [0;1;32mactive (running)[0m since Wed 2023-11-01 23:31:17 +04; 3s ago[m
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;[m
+    Process: 33395 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=[m[7m>[27m
+    Process: 33398 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, s[m[7m>[27m
+   Main PID: 33399 (nginx)[m
+      Tasks: 2 (limit: 4605)[m
+     Memory: 1.8M[m
+        CPU: 10ms[m
+     CGroup: /system.slice/nginx.service[m
+             ├─[0;38;5;245m33399 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"[0m[m
+             └─[0;38;5;245m33402 "nginx: worker process"[0m[m
+[m
+Nov 01 23:31:17 pasqueque-kali systemd[1]: Starting nginx.service - A high performance web se[m[7m>[27m
+Nov 01 23:31:17 pasqueque-kali systemd[1]: Started nginx.service - A high performance web ser[m[7m>[27m
+[7mlines 1-16/16 (END)[27m[K[K [KESCESC[KOO[KAA[K...skipping...
+[0;1;32m●[0m nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://pasqueque-kali/lib/systemd/system/nginx.service/lib/systemd/system/nginx.service]8;;; [0;1;32menabled[0m; preset: [0;1;38;5;185mdisabled[0m)[m
+     Active: [0;1;32mactive (running)[0m since Wed 2023-11-01 23:31:17 +04; 3s ago[m
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;[m
+    Process: 33395 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=[m[7m>[27m
+    Process: 33398 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, s[m[7m>[27m
+   Main PID: 33399 (nginx)[m
+      Tasks: 2 (limit: 4605)[m
+     Memory: 1.8M[m
+        CPU: 10ms[m
+     CGroup: /system.slice/nginx.service[m
+             ├─[0;38;5;245m33399 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"[0m[m
+             └─[0;38;5;245m33402 "nginx: worker process"[0m[m
+[m
+Nov 01 23:31:17 pasqueque-kali systemd[1]: Starting nginx.service - A high performance web se[m[7m>[27m
+Nov 01 23:31:17 pasqueque-kali systemd[1]: Started nginx.service - A high performance web ser[m[7m>[27m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[7mlines 1-16/16 (END)[27m[K[K[?1l>                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4m[32msudo[24m[39m [36msystemctl[39m status nginx.service[P[14C [15D[P[14C [15D[P[14C [15D[P[14C [15Do nginx.service[14Dp nginx.service[14D[?1l>[?2004l
+                                                                                              ]0;kali@pasqueque-kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿pasqueque-kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4me[24m[4me[24m[38;2;153;153;153mxit[39m[24m[36me[36mx[39m[39m[4me[39m[4mx[39m[4mi[24m[24m[36me[24m[36mx[24m[36mi[36mt[39m[?1l>[?2004l
+
+Script done on 2023-11-01 23:31:35+04:00 [COMMAND_EXIT_CODE="0"]

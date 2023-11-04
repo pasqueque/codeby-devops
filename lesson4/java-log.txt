@@ -1,0 +1,33 @@
+Script started on 2023-11-01 23:00:42+04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS=">
+                                                                                             >
+ ^t^t ^t^`^[[1m^[[32m^[[34m$^[[0m^[[34m^[[39m ^[[K^[[?1h^[=^[[?2004h^[[1mj^[[0m^H^[[1mj^[[0m^>
+openjdk version "17.0.9" 2023-10-17
+OpenJDK Runtime Environment (build 17.0.9+9-Debian-1)
+OpenJDK 64-Bit Server VM (build 17.0.9+9-Debian-1, mixed mode, sharing)
+                                                                                             >
+^M^[[0m^[[27m^[[24m^[[J^[[32m ^t^l ^t^` ^t^`(^[[1m^[[32m^[[34mkali ^i pasqueque-kali^[[0m^[[3>
+ ^t^t ^t^`^[[1m^[[32m^[[34m$^[[0m^[[34m^[[39m ^[[K^[[?1h^[=^[[?2004h^[[36mjava^[[39m ^[[32m-v>
+[sudo] password for kali:
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                         Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-17-openjdk-amd64/bin/java   1711      auto mode
+* 1            /usr/lib/jvm/java-17-openjdk-amd64/bin/java   1711      manual mode
+  2            /usr/local/jdk-21.0.1/bin/java                2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+update-alternatives: using /usr/local/jdk-21.0.1/bin/java to provide /usr/bin/java (java) in >
+                                                                                             >
+^M^[[0m^[[27m^[[24m^[[J^[[32m ^t^l ^t^` ^t^`(^[[1m^[[32m^[[34mkali ^i pasqueque-kali^[[0m^[[3>
+ ^t^t ^t^`^[[1m^[[32m^[[34m$^[[0m^[[34m^[[39m ^[[K^[[?1h^[=^[[?2004h^[[4m^[[32msudo^[[24m^[[3>
+java version "21.0.1" 2023-10-17 LTS
+Java(TM) SE Runtime Environment (build 21.0.1+12-LTS-29)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.1+12-LTS-29, mixed mode, sharing)
+                                                                                             >
+^M^[[0m^[[27m^[[24m^[[J^[[32m ^t^l ^t^` ^t^`(^[[1m^[[32m^[[34mkali ^i pasqueque-kali^[[0m^[[3>
+ ^t^t ^t^`^[[1m^[[32m^[[34m$^[[0m^[[34m^[[39m ^[[K^[[?1h^[=^[[?2004h^[[4me^[[24m^H^[[4me^[[24>
+
+Script done on 2023-11-01 23:01:25+04:00 [COMMAND_EXIT_CODE="0"]
+
+
