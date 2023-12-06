@@ -1,0 +1,10 @@
+<VirtualHost *:8084>
+        ServerAdmin admin@site-apache.net
+        #DocumentRoot /var/www/site-apache.net/html
+        DocumentRoot /opt/apache/www/site-apache.net/html
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+
