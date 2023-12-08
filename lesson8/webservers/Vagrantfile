@@ -1,0 +1,31 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+    config.vm.box = "bento/ubuntu-20.04"
+    config.vm.box_check_update = false    
+
+    config.vm.define "server" do |server|
+      server.vm.hostname = "server"
+      server.vm.network "public_network", ip: "192.168.56.101"
+      server.vm.provider "virtualbox" do |vb|
+        vb.gui = false
+        vb.memory = "1024"
+      end
+      server.vm.provision "shell", path: "./scripts/ssl_webserver.sh"
+    end
+
+    config.vm.define "client" do |client|
+      client.vm.hostname = "client"
+      client.vm.network "public_network", ip: "192.168.56.100"
+      client.vm.provider "virtualbox" do |vb|
+        vb.gui = false
+        vb.memory = "1024"
+      end     
+      client.vm.provision "shell", path: "./scripts/client_hosts_ca_cert_added_to_https.sh"
+    end
+end
