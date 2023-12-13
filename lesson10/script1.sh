@@ -24,10 +24,10 @@ chmod 777 /home/$current_user/myfolder/file2.txt
 tr -dc A-Za-z </dev/urandom | head -c 20 > /home/$current_user/myfolder/file3.txt
 
 # Создаем пустые файлы 4 и 5
-if [ ! -f  /home/$current_user/myfolder/file4.txt ] || [ ! -s /home/$current_user/myfolder/fi>
+if [ ! -f  /home/$current_user/myfolder/file4.txt ] || [ ! -s /home/$current_user/myfolder/file4.txt ]; then
         touch /home/$current_user/myfolder/file4.txt
 fi
-if [ ! -f  /home/$current_user/myfolder/file5.txt ] || [ ! -s /home/$current_user/myfolder/fi>
+if [ ! -f  /home/$current_user/myfolder/file5.txt ] || [ ! -s /home/$current_user/myfolder/file5.txt ]; then
         touch /home/$current_user/myfolder/file5.txt
 fi
 
