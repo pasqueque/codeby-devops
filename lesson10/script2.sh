@@ -12,7 +12,7 @@ if [ -d /home/$current_user/myfolder ]; then
         if [ -f /home/$current_user/myfolder/file2.txt ]; then  
                 chmod 664 /home/$current_user/myfolder/file2.txt
         else
-                echo "script2.sh уже был запущен и file2 уже удален, чтобы его создать запуст>
+                echo "script2.sh уже был запущен и file2 уже удален, чтобы его создать запустите script1.sh"
         fi
         # Определяем пустые файлы и удаляем их
         find /home/$current_user/myfolder -type f -empty -delete
