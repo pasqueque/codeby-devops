@@ -1,0 +1,5 @@
+# ansible/env/dev/inventory
+[web]
+webserver1 ansible_host=192.168.56.100
+[web:vars]
+env=development
