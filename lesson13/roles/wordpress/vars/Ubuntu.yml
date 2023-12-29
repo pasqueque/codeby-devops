@@ -1,0 +1,21 @@
+db_name: wordpress
+#
+db_user: wordpress
+#
+db_user_password: P@ssw0rd
+#
+db_host: localhost
+#
+root_password: P@ssw0rd
+root_login: root
+#
+start_web: apache2
+#Web configure
+web_path: /var/www/html
+web_owner: www-data
+web_group: www-data
+#
+#
+#
+wordpress_file_path: /wordpress/wp-config.php
+wordpress_file_default: /wordpress/wp-config-sample.php

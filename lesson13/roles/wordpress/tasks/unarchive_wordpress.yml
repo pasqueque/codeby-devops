@@ -1,0 +1,10 @@
+---
+- name: Unarchive Wordpress
+  unarchive:
+    src: "{{ wordpress_directory.dest }}"
+    dest: "{{ web_path }}"
+    remote_src: yes
+    mode: 0775
+    owner: "{{ web_owner }}"
+    group: "{{ web_group }}"
+...

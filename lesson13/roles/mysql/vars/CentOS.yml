@@ -1,0 +1,26 @@
+#
+db_name: wordpress
+#
+db_user: wordpress
+#
+db_user_password: P@ssw0rd
+#
+db_host: localhost
+#
+root_password: P@ssw0rd
+root_login: root
+#
+#install packages
+packages:
+#  - httpd
+  - mariadb
+  - MariaDB-server
+  - MariaDB-client
+  - mod_ssl
+  - unzip
+  - MySQL-python
+
+start_db: mariadb
+
+mariadb_repo: https://mirror.mariadb.org/yum/10.4/centos7-amd64/
+mariadb_gpgkey: https://mirror.mariadb.org/yum/RPM-GPG-KEY-MariaDB

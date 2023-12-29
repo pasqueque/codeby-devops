@@ -1,0 +1,19 @@
+---
+- name: "Update all packages CentOS"
+  ansible.builtin.yum:
+   update_cache: yes
+
+   
+- name: Create MariaDB repo
+  yum_repository:
+    name: mariadb
+    description: MariaDB repo
+    baseurl: "{{ mariadb_repo }}"
+    gpgkey: "{{ mariadb_gpgkey }}"
+    gpgcheck: yes
+    enabled: yes
+
+- name: Install CentOS {{ packages }}
+  ansible.builtin.yum:
+    name: "{{ packages }}"
+    state: latest

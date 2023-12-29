@@ -1,0 +1,10 @@
+---
+# handlers file for apache2
+- name: restart_web_service
+  service:
+    name: "{{ start_web }}"
+    state: restarted
+
+- name: print_this
+  ansible.builtin.debug:
+    msg: 'restarted web service'

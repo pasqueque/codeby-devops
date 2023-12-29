@@ -1,0 +1,7 @@
+---
+- name: Download wordpress
+  get_url:
+    url: "{{ wordpress_url }}"
+    dest: "{{ wordpress_path }}"
+  register: wordpress_directory
+...

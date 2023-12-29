@@ -1,0 +1,22 @@
+- name: update packages and instal httpd
+  block:
+
+   - name: "Update all packages centos"
+     ansible.builtin.yum:
+      update_cache: yes
+
+   - name: Install repo for php new version
+     ansible.builtin.yum:
+      name: "{{ php_repo }}"
+      state: present  
+      
+   - name: Install php new version
+     command: "{{ command }}"
+   
+   - name: "Install httpd and memcached on CentOS"
+     ansible.builtin.yum:
+      name: "{{ packages }}"
+      state: latest
+     notify:
+      - restart_web_service
+      - print_this

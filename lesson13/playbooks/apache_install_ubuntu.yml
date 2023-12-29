@@ -1,0 +1,7 @@
+- name: "Apache install from role"
+  gather_facts: true
+  become: true
+  hosts: ubuntu_group
+
+  roles:
+    - role: apache2

@@ -1,0 +1,12 @@
+- name: Ubuntu update packages and install apache2
+  block:
+   - name: "Update all packages"
+     ansible.builtin.apt:
+      update_cache: yes
+   - name: "Installing apache2 on Ubuntu"
+     ansible.builtin.apt:
+      name: "{{ packages }}"
+      state: latest
+     notify:
+      - restart_web_service
+      - print_this

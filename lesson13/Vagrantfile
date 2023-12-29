@@ -1,0 +1,39 @@
+# Префикс для LAN сети
+BRIDGE_NET="192.168.31."
+
+DOMAIN="test"
+
+MACHINES = {
+  :ubuntu => {
+    :box_name => "bento/ubuntu-20.04",
+    :host_name => "ubuntu-wp",  
+    :ip_addr => BRIDGE_NET + "100",
+    :cpu => 1,
+    :ram => 512
+  },
+  :centos => {
+    :box_name => "centos/7",
+    :host_name => "centos-wp",  
+    :ip_addr => BRIDGE_NET + "101",
+    :cpu => 1,
+    :ram => 512
+  }
+}
+
+Vagrant.configure("2") do |config|
+    MACHINES.each do |boxname, boxconfig|                   # Проходим по элементах массива "MACHINES"
+        config.vm.define boxname do |box|
+            box.vm.box = boxconfig[:box_name]               # Поднять машину из образа
+            box.vm.host_name = boxconfig[:host_name]        # Hostname который будет присвоен VM (самой ОС)
+#            box.vm.usable_port_range = (2200..2250)         # Пул портов, который будет использоваться для подключения к каждый VM через 127.0.0.1
+            box.vm.network "public_network", ip: boxconfig[:ip_addr]
+            box.vm.provider :virtualbox do |vb|
+                vb.name = boxconfig[:host_name]     # Можно перезаписать название VM в Vbox GUI
+                vb.cpus = boxconfig[:cpu]
+                vb.memory = boxconfig[:ram]
+            end
+            # SHELL
+            box.vm.provision "shell", path: "../scripts/add_ssh_key.sh"
+        end
+    end
+end

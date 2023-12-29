@@ -1,0 +1,12 @@
+start_web: httpd
+
+php_repo: 
+  - http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+  - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+# Command install php new version
+command: yum --enablerepo=remi,remi-php74 install php php-common php-mysql php-mysqlnd -y
+
+packages:
+  - httpd
+  - memcached

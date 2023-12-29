@@ -1,0 +1,34 @@
+---
+- name: Create wp-config.php file
+  copy: 
+    src: "{{ web_path }}{{ wordpress_file_default }}"
+    dest: "{{ web_path }}{{ wordpress_file_path }}"
+    remote_src: yes
+    owner: "{{ web_owner }}"
+    group: "{{ web_group }}"
+#
+- name: Configure wp-config.php file Database Name
+  lineinfile:
+    path: "{{ web_path }}{{ wordpress_file_path }}"
+    regexp: '^(.*)database_name_here(.*)$'
+    line: "define( 'DB_NAME', '{{ db_name }}' );"
+#
+- name: Configure wp-config.php file Database user
+  lineinfile:
+    path: "{{ web_path }}{{ wordpress_file_path }}"
+    regexp: '^(.*)username_here(.*)$'
+    line: "define( 'DB_USER', '{{ db_user }}' );"
+#
+- name: Configure wp-config.php file Database user password
+  lineinfile:
+    path: "{{ web_path }}{{ wordpress_file_path }}"
+    regexp: '^(.*)password_here(.*)$'
+    line: "define( 'DB_PASSWORD', '{{ db_user_password }}' );"
+#
+- name: Configure wp-config.php file Database host
+  lineinfile:
+    path: "{{ web_path }}{{ wordpress_file_path }}"
+    regexp: '^(.*)localhost(.*)$'
+    line: "define( 'DB_HOST', '{{ db_host }}' );"
+  notify: restart_web_service
+...

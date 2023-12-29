@@ -1,0 +1,7 @@
+---
+# handlers file for mariadb_apache_wordpress
+- name: restart_web_service
+  service:
+    name: "{{ start_web }}"
+    state: restarted
+...

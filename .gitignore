@@ -2,3 +2,4 @@ lesson12/ansible/ansible.cfg
 lesson12/ansible/playbook1.yml
 lesson12/ansible/key
 lesson12/ansible/key.pub
+lesson13/ansible_key.ssh

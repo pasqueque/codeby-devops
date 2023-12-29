@@ -1,0 +1,26 @@
+db_name: wordpress
+#
+db_user: wordpress
+#
+db_user_password: P@ssw0rd
+#
+db_host: localhost
+#
+root_password: P@ssw0rd
+root_login: root
+#
+#install packages
+packages:
+  - python3
+  - python3-dev
+  - mysql-server
+  - mysql-client
+  - mysql-common
+  - python3-mysqldb
+  - python3-pip
+
+#pip_packages:
+#  - PyMySQL
+#  - MySQL-python
+#
+start_db: mysql
