@@ -1,0 +1,7 @@
+---
+- name: Start services
+  service:
+    name: "{{ start_db }}"
+    state: started
+    enabled: true
+...

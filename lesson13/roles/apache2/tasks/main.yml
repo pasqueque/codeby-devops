@@ -1,0 +1,16 @@
+- name: "Print debug"
+  ansible.builtin.debug:
+    msg: "This host is in {{ ansible_facts['distribution'] }} environment"
+
+- name: Include vars
+  include_vars: "{{ ansible_facts['distribution'] }}.yml"
+
+- name: Install the correct web server for CentOS
+  import_tasks: 02-centos-install.yml
+  when: ansible_facts['distribution'] == "CentOS"
+  ignore_errors: true
+
+- name: Install the correct web server for Ubuntu
+  import_tasks: 01-ubuntu-install.yml
+  when: ansible_facts['distribution'] == "Ubuntu"
+  ignore_errors: true

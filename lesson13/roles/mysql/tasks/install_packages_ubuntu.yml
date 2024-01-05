@@ -1,0 +1,14 @@
+- name: Ubuntu update packages and install apache2
+  block:
+   - name: "Update all packages"
+     ansible.builtin.apt:
+      update_cache: yes
+   - name: Install Ubuntu {{ packages }}
+     ansible.builtin.apt:
+      name: "{{ packages }}"
+      state: latest
+#   - name: Install pymysql Ubuntu
+#     pip:
+#       name: "{{ pip_packages }}"
+#       executable: pip
+#       state: present

@@ -1,0 +1,12 @@
+ubuntu ansible_host=192.168.31.100
+centos ansible_host=192.168.31.101
+
+[web]
+ubuntu
+centos
+
+[ubuntu_group]
+ubuntu
+
+[centos_group]
+centos

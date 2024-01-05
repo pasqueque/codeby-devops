@@ -1,0 +1,7 @@
+- name: "WP install from role"
+  gather_facts: true
+  become: true
+  hosts: centos_group
+
+  roles:
+    - role: wordpress

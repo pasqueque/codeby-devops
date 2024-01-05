@@ -1,0 +1,5 @@
+---
+# defaults file for mariadb_apache_wordpress
+wordpress_url: https://en-gb.wordpress.org/latest-en_GB.tar.gz
+#
+wordpress_path: /tmp/

@@ -1,0 +1,9 @@
+- name: "install apache2, mysql and wp from roles"
+  gather_facts: true
+  become: true
+  hosts: centos_group
+
+  roles:
+    - role: apache2
+    - role: mysql
+    - role: wordpress

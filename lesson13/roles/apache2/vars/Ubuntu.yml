@@ -1,0 +1,8 @@
+start_web: apache2
+
+#install packages
+packages:
+  - apache2
+  - php7.4
+  - php7.4-mysql
+  - php7.4-common

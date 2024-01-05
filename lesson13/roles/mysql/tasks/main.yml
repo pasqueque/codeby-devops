@@ -1,0 +1,25 @@
+---
+- name: "Print debug"
+  ansible.builtin.debug:
+    msg: "This host is in {{ ansible_facts['distribution'] }} environment"
+
+- name: Include vars
+  include_vars: "{{ ansible_facts['distribution'] }}.yml"
+
+- name: Install mysql for Ubuntu
+  import_tasks: install_packages_ubuntu.yml
+  when: ansible_facts['distribution'] == "Ubuntu"
+  ignore_errors: true
+
+- name: Install mysql for CentOS
+  import_tasks: install_packages_centos7.yml
+  when: ansible_facts['distribution'] == "CentOS"
+  ignore_errors: true
+
+- name: Start services
+  import_tasks: start_services.yml
+
+- name: Configure mysql
+  import_tasks: configure_mysql.yml
+#  when: ansible_facts['distribution'] == "Ubuntu"
+...

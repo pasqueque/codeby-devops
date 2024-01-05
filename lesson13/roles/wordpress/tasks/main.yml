@@ -1,0 +1,21 @@
+---
+- name: "Print debug"
+  ansible.builtin.debug:
+    msg: "This host is in {{ ansible_facts['distribution'] }} environment"
+
+- name: Include vars
+  include_vars: "{{ ansible_facts['distribution'] }}.yml"
+#
+- name: Download WordPress
+  import_tasks: 2-download_wordpress.yml
+#
+- name: Unarchive WordPress
+  import_tasks: unarchive_wordpress.yml
+#
+- name: Configure WordPress file
+  import_tasks: 1-configure_wordpress.yml
+#
+- name: Finish the installation at the link below
+  debug:
+    msg: "{{ ansible_default_ipv4.address }}/wordpress/wp-admin/install.php"
+...
