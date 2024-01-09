@@ -1,0 +1,74 @@
+---
+- name: Update servers
+  hosts: all
+  #remote_user: vagrant
+  vars:
+    list_of_packages:
+      - nginx
+      - openssl
+
+  tasks:
+    - name: "Print debug"
+      ansible.builtin.debug:
+       msg: "This host is in {{ env }} environment"
+ 
+    - name: "Update all packages"
+      ansible.builtin.apt:
+        update_cache: yes
+      become: true
+      become_method: sudo
+
+    - name: "Installing Packages"
+      ansible.builtin.apt:
+        name: "{{ item }}"
+      become: true
+      become_method: sudo
+      loop: "{{ list_of_packages }}"
+
+    - name: "cert and key creation"
+      ansible.builtin.command:
+        'openssl req -newkey rsa:2048 -nodes -keyout /etc/ssl/server.key -x509 -days 365 -subj "/C=RU/ST=Ekaterinburg/L=Ekaterinburg/O=LLC/CN=site-nginx.net" -out /etc/ssl/server.crt'
+      become: true
+      become_method: sudo 
+
+    - name: "Create directory"
+      file:
+        path=/opt/nginx/www/site-nginx.net/html
+        state=directory
+      become: true
+      become_method: sudo
+    
+    - name: "Create nginx index"
+      copy:
+        src: ./index.html
+        dest: /opt/nginx/www/site-nginx.net/html/index.html
+      become: true
+      become_method: sudo
+
+    - name: "Create nginx conf"
+      copy:
+        src: ./site_nginx_https.net
+        dest: /etc/nginx/sites-available/
+      become: true
+      become_method: sudo
+
+    - name: "Check symlink in site-enabled"
+      ansible.builtin.stat:
+        path: /etc/nginx/sites-enabled/site_nginx_https.net
+      register: link_stat
+
+    - name: "Create symlink if it does not exists"
+      ansible.builtin.file:
+        src: /etc/nginx/sites-available/site_nginx_https.net
+        dest: /etc/nginx/sites-enabled/site_nginx_https.net
+        state: link
+      when: link_stat.stat.islnk is not defined
+      become: true
+      become_method: sudo
+    
+    - name: "Restart nginx"
+      service: name=nginx state=restarted enabled=yes
+      become: true
+      become_method: sudo
+
+ 

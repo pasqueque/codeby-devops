@@ -1,0 +1,253 @@
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson14/terraform]
+└──╼ $terraform plan -generate-config-out=generated.tf
+yandex_compute_instance.import: Preparing import... [id=fhm06**]
+yandex_vpc_network.private: Refreshing state... [id=enp29**]
+yandex_vpc_network.public: Refreshing state... [id=enp***]
+yandex_compute_instance.import: Refreshing state... [id=fhm0***]
+yandex_vpc_subnet.subnet-2: Refreshing state... [id=e9ba***]
+yandex_vpc_security_group.public-sg: Refreshing state... [id=enpq***]
+yandex_vpc_subnet.subnet-1: Refreshing state... [id=e9b***]
+yandex_vpc_security_group.private-sg: Refreshing state... [id=enpp***]
+yandex_compute_instance.public_vm: Refreshing state... [id=fhmqnsa***]
+yandex_compute_instance.private_vm: Refreshing state... [id=fhm75***]
+
+Terraform will perform the following actions:
+
+  # yandex_compute_instance.import will be imported
+  # (config will be generated)
+    resource "yandex_compute_instance" "import" {
+        created_at                = "2024-01-09T11:32:46Z"
+        description               = "\"vm for import to terraform\""
+        folder_id                 = "b1******"
+        fqdn                      = "import-vm.ru-central1.internal"
+        hostname                  = "import-vm"
+        id                        = "fhm*******"
+        labels                    = {}
+        metadata                  = {
+            "install-unified-agent" = "0"
+            "ssh-keys"              = "cadm:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYPqp4TMhxj3biHVIXphtWG89sg3I74EbOs09BS0Kta pasqueque@pasqueque-comp"
+            "user-data"             = <<-EOT
+                #cloud-config
+                datasource:
+                 Ec2:
+                  strict_id: false
+                ssh_pwauth: no
+                users:
+                - name: cadm
+                  sudo: ALL=(ALL) NOPASSWD:ALL
+                  shell: /bin/bash
+                  ssh_authorized_keys:
+                  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYPqp4TMhxj3biHVIXphtWG89sg3I74EbOs09BS0Kta pasqueque@pasqueque-comp
+                runcmd: []
+            EOT
+        }
+        name                      = "import-vm"
+        network_acceleration_type = "standard"
+        platform_id               = "standard-v3"
+        service_account_id        = "aj*******"
+        status                    = "running"
+        zone                      = "ru-central1-a"
+
+        boot_disk {
+            auto_delete = true
+            device_name = "fh****"
+            disk_id     = "fh****"
+            mode        = "READ_WRITE"
+
+            initialize_params {
+                block_size = 4096
+                image_id   = "fd****"
+                size       = 5
+                type       = "network-hdd"
+            }
+        }
+
+        metadata_options {
+            aws_v1_http_endpoint = 1
+            aws_v1_http_token    = 2
+            gce_http_endpoint    = 1
+            gce_http_token       = 1
+        }
+
+        network_interface {
+            index              = 0
+            ip_address         = "192.168.20.10"
+            ipv4               = true
+            ipv6               = false
+            mac_address        = "d0:0d:30:e7:d8:70"
+            nat                = true
+            nat_ip_address     = "158.160.127.201"
+            nat_ip_version     = "IPV4"
+            security_group_ids = [
+                "en****",
+            ]
+            subnet_id          = "e9*****"
+        }
+
+        placement_policy {
+            host_affinity_rules = []
+        }
+
+        resources {
+            core_fraction = 20
+            cores         = 2
+            gpus          = 0
+            memory        = 2
+        }
+
+        scheduling_policy {
+            preemptible = false
+        }
+    }
+
+Plan: 1 to import, 0 to add, 0 to change, 0 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson14/terraform]
+└──╼ $terraform apply
+yandex_compute_instance.import: Preparing import... [id=fhm******]
+yandex_vpc_network.private: Refreshing state... [id=enp****]
+yandex_vpc_network.public: Refreshing state... [id=enpl****]
+yandex_compute_instance.import: Refreshing state... [id=fhm0****]
+yandex_vpc_subnet.subnet-1: Refreshing state... [id=e9bsu****]
+yandex_vpc_subnet.subnet-2: Refreshing state... [id=e9bam****]
+yandex_vpc_security_group.private-sg: Refreshing state... [id=enpp****]
+yandex_vpc_security_group.public-sg: Refreshing state... [id=enpq****]
+yandex_compute_instance.public_vm: Refreshing state... [id=fhmq****]
+yandex_compute_instance.private_vm: Refreshing state... [id=fhm7****]
+
+Terraform will perform the following actions:
+
+  # yandex_compute_instance.import will be imported
+    resource "yandex_compute_instance" "import" {
+        created_at                = "2024-01-09T11:32:46Z"
+        description               = "\"vm for import to terraform\""
+        folder_id                 = "b1g************"
+        fqdn                      = "import-vm.ru-central1.internal"
+        hostname                  = "import-vm"
+        id                        = "fh******"
+        labels                    = {}
+        metadata                  = {
+            "install-unified-agent" = "0"
+            "ssh-keys"              = "cadm:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYPqp4TMhxj3biHVIXphtWG89sg3I74EbOs09BS0Kta pasqueque@pasqueque-comp"
+            "user-data"             = <<-EOT
+                #cloud-config
+                datasource:
+                 Ec2:
+                  strict_id: false
+                ssh_pwauth: no
+                users:
+                - name: cadm
+                  sudo: ALL=(ALL) NOPASSWD:ALL
+                  shell: /bin/bash
+                  ssh_authorized_keys:
+                  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYPqp4TMhxj3biHVIXphtWG89sg3I74EbOs09BS0Kta pasqueque@pasqueque-comp
+                runcmd: []
+            EOT
+        }
+        name                      = "import-vm"
+        network_acceleration_type = "standard"
+        platform_id               = "standard-v3"
+        service_account_id        = "aj***********"
+        status                    = "running"
+        zone                      = "ru-central1-a"
+
+        boot_disk {
+            auto_delete = true
+            device_name = "fh***********"
+            disk_id     = "fh***********"
+            mode        = "READ_WRITE"
+
+            initialize_params {
+                block_size = 4096
+                image_id   = "fd******"
+                size       = 5
+                type       = "network-hdd"
+            }
+        }
+
+        metadata_options {
+            aws_v1_http_endpoint = 1
+            aws_v1_http_token    = 2
+            gce_http_endpoint    = 1
+            gce_http_token       = 1
+        }
+
+        network_interface {
+            index              = 0
+            ip_address         = "192.168.20.10"
+            ipv4               = true
+            ipv6               = false
+            mac_address        = "d0:0d:30:e7:d8:70"
+            nat                = true
+            nat_ip_address     = "158.160.127.201"
+            nat_ip_version     = "IPV4"
+            security_group_ids = [
+                "enp**********",
+            ]
+            subnet_id          = "e9************"
+        }
+
+        placement_policy {
+            host_affinity_rules = []
+        }
+
+        resources {
+            core_fraction = 20
+            cores         = 2
+            gpus          = 0
+            memory        = 2
+        }
+
+        scheduling_policy {
+            preemptible = false
+        }
+    }
+
+Plan: 1 to import, 0 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+yandex_compute_instance.import: Importing... [id=fh************]
+yandex_compute_instance.import: Import complete [id=fhm0***********]
+
+Apply complete! Resources: 1 imported, 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+external_ip_address_private_vm = "158.160.120.200"
+external_ip_address_public_vm = "51.250.73.221"
+internal_ip_address_private_vm = "192.168.10.28"
+internal_ip_address_public_vm = "192.168.20.4"
+
+
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson14/terraform]
+└──╼ $terraform apply
+yandex_vpc_network.public: Refreshing state... [id=enp****]
+yandex_vpc_network.private: Refreshing state... [id=enp*****]
+yandex_compute_instance.import: Refreshing state... [id=fhm******]
+yandex_vpc_subnet.subnet-1: Refreshing state... [id=e9b******]
+yandex_vpc_security_group.private-sg: Refreshing state... [id=enpp*********]
+yandex_vpc_subnet.subnet-2: Refreshing state... [id=e9******]
+yandex_vpc_security_group.public-sg: Refreshing state... [id=en********]
+yandex_compute_instance.private_vm: Refreshing state... [id=fhm*******]
+yandex_compute_instance.public_vm: Refreshing state... [id=fhm***********]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+external_ip_address_private_vm = "158.160.120.200"
+external_ip_address_public_vm = "51.250.73.221"
+internal_ip_address_private_vm = "192.168.10.28"
+internal_ip_address_public_vm = "192.168.20.4"

@@ -1,0 +1,13 @@
+server {
+	listen 80;
+    listen 443 ssl;
+        index index.html;
+        server_name site-nginx.net;
+
+        ssl_certificate /etc/ssl/server.crt;
+        ssl_certificate_key /etc/ssl/server.key;
+
+        location / {
+        	root /opt/nginx/www/site-nginx.net/html;
+        }
+}
