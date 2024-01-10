@@ -1,0 +1,9 @@
+server {
+	listen 8080;
+        index index.html;
+        server_name site-nginx.net;
+        location / {
+        	root /opt/nginx/www/site-nginx.net/html;
+        }
+}
+
