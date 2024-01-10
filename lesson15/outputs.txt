@@ -1,0 +1,37 @@
+nework-out-module = {
+  "nework-out" = [
+    "enp**************g39",
+    "private-network1",
+  ]
+  "nework-subnets" = tolist([
+    "e2l**************tvk",
+    "e9b**************mf6",
+  ])
+  "subnet-zones-module" = {
+    "e2l**************tvk" = "ru-central1-b"
+    "e9b**************mf6" = "ru-central1-a"
+  }
+  "subnets-out" = {
+    "e2l***************tvk" = {
+      "description" = ""
+      "name" = "test-new-zone-for-module"
+      "v4_cidr_blocks" = tolist([
+        "192.168.40.0/24",
+      ])
+      "zone" = "ru-central1-b"
+    }
+    "e9b**************mf6" = {
+      "description" = ""
+      "name" = "subnet1"
+      "v4_cidr_blocks" = tolist([
+        "192.168.10.0/24",
+      ])
+      "zone" = "ru-central1-a"
+    }
+  }
+}
+subnet-zone-out-module = {
+  "e2l**************tvk" = "ru-central1-b"
+  "e9b**************mf6" = "ru-central1-a"
+}
+
