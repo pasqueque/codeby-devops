@@ -3,13 +3,25 @@ lesson12/ansible/playbook1.yml
 lesson12/ansible/key
 lesson12/ansible/key.pub
 lesson13/ansible_key.ssh
-lesson14/terraform/.terraform.lock.hcl
-lesson14/terraform/generated.tf
-lesson14/terraform/import.tf
-lesson14/terraform/key.json
-lesson14/terraform/terraform.tfstate
-lesson14/terraform/terraform.tfstate.backup
-lesson14/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.104.0/linux_amd64/CHANGELOG.md
-lesson14/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.104.0/linux_amd64/LICENSE
-lesson14/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.104.0/linux_amd64/README.md
-lesson14/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.104.0/linux_amd64/terraform-provider-yandex_v0.104.0
+# Игнорировать все файлы с расширением .lock.hcl
+*.lock.hcl
+
+# Игнорировать файлы с именем generated.tf
+generated.tf
+
+# Игнорировать файлы с именем import.tf
+import.tf
+
+# Игнорировать файлы с именем key.json
+key.json
+
+# Игнорировать файлы terraform.tfstate и любые резервные копии
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+
+# Игнорировать файлы CHANGELOG.md, LICENSE, README.md и terraform-provider-yandex_*
+*/linux_amd64/CHANGELOG.md
+*/linux_amd64/LICENSE
+*/linux_amd64/README.md
+terraform-provider-yandex_*
