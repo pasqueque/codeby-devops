@@ -1,0 +1,554 @@
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $script log-docker.log
+Script started, output log file is 'log-docker.log'.
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker create network wp-net
+Unable to find image 'network:latest' locally
+Error response from daemon: pull access denied for network, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+┌─[✗]─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker network create wp-net
+165eaa127d8bc0d2f7a3c7886add6790806f7bbcdee80b0098e2c7b326207ce0
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker inspect wp-net
+[
+    {
+        "Name": "wp-net",
+        "Id": "165eaa127d8bc0d2f7a3c7886add6790806f7bbcdee80b0098e2c7b326207ce0",
+        "Created": "2024-01-17T00:29:31.454409214+05:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker volume create wp-db
+wp-db
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker volume create wp-data
+wp-data
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker volume inspect wp-data
+[
+    {
+        "CreatedAt": "2024-01-17T00:30:22+05:00",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/wp-data/_data",
+        "Name": "wp-data",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker volume inspect wp-db
+[
+    {
+        "CreatedAt": "2024-01-17T00:30:19+05:00",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/wp-db/_data",
+        "Name": "wp-db",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker run --name mysql-wp --network wp-net -p 3306:3306 -v wp-db:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=P@ssw0rd_root -e MYSQL_DATABASE=wordpress -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=P@ssw0rd_change_me -d mysql:8.2.0
+Unable to find image 'mysql:8.2.0' locally
+8.2.0: Pulling from library/mysql
+bce031bc522d: Pull complete 
+cf7e9f463619: Pull complete 
+105f403783c7: Pull complete 
+878e53a613d8: Pull complete 
+2a362044e79f: Pull complete 
+6e4df4f73cfe: Pull complete 
+69263d634755: Pull complete 
+fe5e85549202: Pull complete 
+5c02229ce6f1: Pull complete 
+7320aa32bf42: Pull complete 
+Digest: sha256:4ef30b2c11a3366d7bb9ad95c70c0782ae435df52d046553ed931621ea36ffa5
+Status: Downloaded newer image for mysql:8.2.0
+8bb463b0698b81abf3c0ee71efc8ae321ff3c666dd0eb506e2e9dc9c985b62e8
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS                               NAMES
+8bb463b0698b   mysql:8.2.0   "docker-entrypoint.s…"   8 seconds ago   Up 7 seconds   0.0.0.0:3306->3306/tcp, 33060/tcp   mysql-wp
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $docker inspect mysql-wp
+[
+    {
+        "Id": "8bb463b0698b81abf3c0ee71efc8ae321ff3c666dd0eb506e2e9dc9c985b62e8",
+        "Created": "2024-01-16T19:31:43.471129809Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "mysqld"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 96889,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2024-01-16T19:31:43.996618196Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:73246731c4b01c19b8713c6408c6c5d898ac04f75f2a4ce998930f12091542f2",
+        "ResolvConfPath": "/var/lib/docker/containers/8bb463b0698b81abf3c0ee71efc8ae321ff3c666dd0eb506e2e9dc9c985b62e8/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/8bb463b0698b81abf3c0ee71efc8ae321ff3c666dd0eb506e2e9dc9c985b62e8/hostname",
+        "HostsPath": "/var/lib/docker/containers/8bb463b0698b81abf3c0ee71efc8ae321ff3c666dd0eb506e2e9dc9c985b62e8/hosts",
+        "LogPath": "/var/lib/docker/containers/8bb463b0698b81abf3c0ee71efc8ae321ff3c666dd0eb506e2e9dc9c985b62e8/8bb463b0698b81abf3c0ee71efc8ae321ff3c666dd0eb506e2e9dc9c985b62e8-json.log",
+        "Name": "/mysql-wp",
+        "RestartCount": 0,
+        "Driver": "btrfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "wp-db:/var/lib/mysql"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "wp-net",
+            "PortBindings": {
+                "3306/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "3306"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "btrfs"
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "wp-db",
+                "Source": "/var/lib/docker/volumes/wp-db/_data",
+                "Destination": "/var/lib/mysql",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "8bb463b0698b",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "3306/tcp": {},
+                "33060/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MYSQL_USER=wordpress",
+                "MYSQL_PASSWORD=P@ssw0rd_change_me",
+                "MYSQL_ROOT_PASSWORD=P@ssw0rd_root",
+                "MYSQL_DATABASE=wordpress",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.16",
+                "MYSQL_MAJOR=innovation",
+                "MYSQL_VERSION=8.2.0-1.el8",
+                "MYSQL_SHELL_VERSION=8.2.1-1.el8"
+            ],
+            "Cmd": [
+                "mysqld"
+            ],
+            "Image": "mysql:8.2.0",
+            "Volumes": {
+                "/var/lib/mysql": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e027c6636ba2594d274af7286fff43600fc599c5b98408f56a710cb3bd3ecb8f",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "3306/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "3306"
+                    }
+                ],
+                "33060/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/e027c6636ba2",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "wp-net": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "8bb463b0698b"
+                    ],
+                    "NetworkID": "165eaa127d8bc0d2f7a3c7886add6790806f7bbcdee80b0098e2c7b326207ce0",
+                    "EndpointID": "26bdccf068f4c0030213e10c6dbb3d4b5a48b18624520a2f1f59f9512e0537be",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:12:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $netstat -anop | grep 3306
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      -                    off (0.00/0/0)
+┌─[pasqueque@pasqueque-comp]─[~]
+└──╼ $cd Documents/DevOpsCodeby/homework/lesson17/wp/
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $ll
+total 0
+drwxr-xr-x 1 pasqueque pasqueque 64 янв 12 05:26 sites-available
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $ll ./sites-available/
+total 12K
+-rw-r--r-- 1 pasqueque pasqueque 1,3K янв 12 05:26 000-default.conf
+-rw-r--r-- 1 pasqueque pasqueque 6,1K янв 12 05:26 default-ssl.conf
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker run --name wp -type=bind,src=/home/pasqueque/Documents/DevOpsCodeby/homework/lesson17/wp/sites-available,dst=/etc/apache2_conf -v wp-data:/var/www/html --network wp-net -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=P@ssw0rd_change_me -e WORDPRESS_DB_NAME=wordpress -p 8080:80 -d wordpress:6.4.2-php8.1-apache
+unknown shorthand flag: 'y' in -ype=bind,src=/home/pasqueque/Documents/DevOpsCodeby/homework/lesson17/wp/sites-available,dst=/etc/apache2_conf
+See 'docker run --help'.
+┌─[✗]─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker run --name wp --type=bind,src=/home/pasqueque/Documents/DevOpsCodeby/homework/lesson17/wp/sites-available,dst=/etc/apache2_conf -v wp-data:/var/www/html --network wp-net -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=P@ssw0rd_change_me -e WORDPRESS_DB_NAME=wordpress -p 8080:80 -d wordpress:6.4.2-php8.1-apache
+unknown flag: --type
+See 'docker run --help'.
+┌─[✗]─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker run --name wp --mount type=bind,src=/home/pasqueque/Documents/DevOpsCodeby/homework/lesson17/wp/sites-available,dst=/etc/apache2_conf -v wp-data:/var/www/html --network wp-net -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=P@ssw0rd_change_me -e WORDPRESS_DB_NAME=wordpress -p 8080:80 -d wordpress:6.4.2-php8.1-apache
+Unable to find image 'wordpress:6.4.2-php8.1-apache' locally
+6.4.2-php8.1-apache: Pulling from library/wordpress
+2f44b7a888fa: Pull complete 
+3a95dcec6035: Pull complete 
+e22afa33f327: Pull complete 
+1aa61ea11ee8: Pull complete 
+ea67ae2bde33: Pull complete 
+ff5356c6468f: Pull complete 
+5e91cb51e886: Pull complete 
+594d91baae92: Pull complete 
+d69351fc82ab: Pull complete 
+8faa4420ad83: Pull complete 
+0a7f7f06a3a9: Pull complete 
+da7c5e6b395d: Pull complete 
+83f25084baca: Pull complete 
+2692c72fe13e: Pull complete 
+065f8bfd90a8: Pull complete 
+d8e181609409: Pull complete 
+33f6a6733a4e: Pull complete 
+64d3157342cd: Pull complete 
+0e9376f33b6a: Pull complete 
+640fc34b97d5: Pull complete 
+5320f4eaee3a: Pull complete 
+Digest: sha256:edb987c81a75daa2cde1520b307ef7b8490864301468b564cdb61b58f920dc1c
+Status: Downloaded newer image for wordpress:6.4.2-php8.1-apache
+1a704609904e998bae55a921f32257e183c0383e2b4b2f026acd089808ef06bc
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED         STATUS         PORTS                               NAMES
+1a704609904e   wordpress:6.4.2-php8.1-apache   "docker-entrypoint.s…"   4 seconds ago   Up 3 seconds   0.0.0.0:8080->80/tcp                wp
+8bb463b0698b   mysql:8.2.0                     "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   0.0.0.0:3306->3306/tcp, 33060/tcp   mysql-wp
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $netstat -anop | grep 8080
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      -                    off (0.00/0/0)
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $curl http://localhost:8080
+<!DOCTYPE html>
+<html dir='ltr'>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width">
+			<title>Database Error</title>
+	<style type="text/css">
+		html {
+			background: #f1f1f1;
+		}
+		body {
+			background: #fff;
+			border: 1px solid #ccd0d4;
+			color: #444;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+			margin: 2em auto;
+			padding: 1em 2em;
+			max-width: 700px;
+			-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+			box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+		}
+		h1 {
+			border-bottom: 1px solid #dadada;
+			clear: both;
+			color: #666;
+			font-size: 24px;
+			margin: 30px 0 0 0;
+			padding: 0;
+			padding-bottom: 7px;
+		}
+		#error-page {
+			margin-top: 50px;
+		}
+		#error-page p,
+		#error-page .wp-die-message {
+			font-size: 14px;
+			line-height: 1.5;
+			margin: 25px 0 20px;
+		}
+		#error-page code {
+			font-family: Consolas, Monaco, monospace;
+		}
+		ul li {
+			margin-bottom: 10px;
+			font-size: 14px ;
+		}
+		a {
+			color: #0073aa;
+		}
+		a:hover,
+		a:active {
+			color: #006799;
+		}
+		a:focus {
+			color: #124964;
+			-webkit-box-shadow:
+				0 0 0 1px #5b9dd9,
+				0 0 2px 1px rgba(30, 140, 190, 0.8);
+			box-shadow:
+				0 0 0 1px #5b9dd9,
+				0 0 2px 1px rgba(30, 140, 190, 0.8);
+			outline: none;
+		}
+		.button {
+			background: #f3f5f6;
+			border: 1px solid #016087;
+			color: #016087;
+			display: inline-block;
+			text-decoration: none;
+			font-size: 13px;
+			line-height: 2;
+			height: 28px;
+			margin: 0;
+			padding: 0 10px 1px;
+			cursor: pointer;
+			-webkit-border-radius: 3px;
+			-webkit-appearance: none;
+			border-radius: 3px;
+			white-space: nowrap;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing:    border-box;
+			box-sizing:         border-box;
+
+			vertical-align: top;
+		}
+
+		.button.button-large {
+			line-height: 2.30769231;
+			min-height: 32px;
+			padding: 0 12px;
+		}
+
+		.button:hover,
+		.button:focus {
+			background: #f1f1f1;
+		}
+
+		.button:focus {
+			background: #f3f5f6;
+			border-color: #007cba;
+			-webkit-box-shadow: 0 0 0 1px #007cba;
+			box-shadow: 0 0 0 1px #007cba;
+			color: #016087;
+			outline: 2px solid transparent;
+			outline-offset: 0;
+		}
+
+		.button:active {
+			background: #f3f5f6;
+			border-color: #7e8993;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+
+			</style>
+</head>
+<body id="error-page">
+	<div class="wp-die-message"><h1>Error establishing a database connection</h1></div></body>
+</html>
+	┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED              STATUS              PORTS                               NAMES
+1a704609904e   wordpress:6.4.2-php8.1-apache   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:8080->80/tcp                wp
+8bb463b0698b   mysql:8.2.0                     "docker-entrypoint.s…"   7 minutes ago        Up 7 minutes        0.0.0.0:3306->3306/tcp, 33060/tcp   mysql-wp
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker stop 1a704609904e
+1a704609904e
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker run --name wp --mount type=bind,src=/home/pasqueque/Documents/DevOpsCodeby/homework/lesson17/wp/sites-available,dst=/etc/apache2_conf -v wp-data:/var/www/html --network wp-net -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=P@ssw0rd_change_me -e WORDPRESS_DB_NAME=wordpress -e WORDPRESS_DB_HOST=mysql-wp:3306 -p 8080:80 -d wordpress:6.4.2-php8.1-apache
+docker: Error response from daemon: Conflict. The container name "/wp" is already in use by container "1a704609904e998bae55a921f32257e183c0383e2b4b2f026acd089808ef06bc". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+┌─[✗]─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker rm 1a704609904e
+1a704609904e
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker run --name wp --mount type=bind,src=/home/pasqueque/Documents/DevOpsCodeby/homework/lesson17/wp/sites-available,dst=/etc/apache2_conf -v wp-data:/var/www/html --network wp-net -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=P@ssw0rd_change_me -e WORDPRESS_DB_NAME=wordpress -e WORDPRESS_DB_HOST=mysql-wp:3306 -p 8080:80 -d wordpress:6.4.2-php8.1-apache
+2d27ad109862871a257135ef42818539cfa8f0da9b32fbcc9a8c4efaac593d94
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED         STATUS         PORTS                               NAMES
+2d27ad109862   wordpress:6.4.2-php8.1-apache   "docker-entrypoint.s…"   3 seconds ago   Up 2 seconds   0.0.0.0:8080->80/tcp                wp
+8bb463b0698b   mysql:8.2.0                     "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   0.0.0.0:3306->3306/tcp, 33060/tcp   mysql-wp
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $netstat -anop | grep 8080
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      -                    off (0.00/0/0)
+tcp        0      0 127.0.0.1:8080          127.0.0.1:60154         TIME_WAIT   -                    timewait (2,51/0/0)
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $curl http://localhost:8080
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson17/wp]
+└──╼ $exit
+exit
+Script done.
