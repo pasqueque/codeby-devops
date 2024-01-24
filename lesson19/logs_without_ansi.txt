@@ -1,0 +1,178 @@
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl cluster-info 
+Kubernetes control plane is running at https://192.168.59.100:8443
+CoreDNS is running at https://192.168.59.100:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl get all -A 
+NAMESPACE     NAME                                   READY   STATUS    RESTARTS      AGE
+kube-system   pod/coredns-5dd5756b68-mwztp           1/1     Running   1 (51m ago)   3d
+kube-system   pod/etcd-minikube                      1/1     Running   1 (51m ago)   3d
+kube-system   pod/kube-apiserver-minikube            1/1     Running   1 (51m ago)   3d
+kube-system   pod/kube-controller-manager-minikube   1/1     Running   1 (51m ago)   3d
+kube-system   pod/kube-proxy-687nn                   1/1     Running   1 (51m ago)   3d
+kube-system   pod/kube-scheduler-minikube            1/1     Running   1 (51m ago)   3d
+kube-system   pod/storage-provisioner                1/1     Running   3 (50m ago)   3d
+
+NAMESPACE     NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+default       service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP                  3d
+kube-system   service/kube-dns     ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   3d
+
+NAMESPACE     NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-system   daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   3d
+
+NAMESPACE     NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system   deployment.apps/coredns   1/1     1            1           3d
+
+NAMESPACE     NAME                                 DESIRED   CURRENT   READY   AGE
+kube-system   replicaset.apps/coredns-5dd5756b68   1         1         1       3d
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl create namespace codeby
+namespace/codeby created
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl get namespace -A 
+NAME              STATUS   AGE
+codeby            Active   9s
+default           Active   3d
+kube-node-lease   Active   3d
+kube-public       Active   3d
+kube-system       Active   3d
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl run nginx --image=nginx --namespace=codeby
+pod/nginx created
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl get pods -A 
+NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+codeby        nginx                              1/1     Running   0             6s
+kube-system   coredns-5dd5756b68-mwztp           1/1     Running   1 (54m ago)   3d
+kube-system   etcd-minikube                      1/1     Running   1 (54m ago)   3d
+kube-system   kube-apiserver-minikube            1/1     Running   1 (54m ago)   3d
+kube-system   kube-controller-manager-minikube   1/1     Running   1 (54m ago)   3d
+kube-system   kube-proxy-687nn                   1/1     Running   1 (54m ago)   3d
+kube-system   kube-scheduler-minikube            1/1     Running   1 (54m ago)   3d
+kube-system   storage-provisioner                1/1     Running   3 (53m ago)   3d
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $cat nginx.yaml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx1-deployment
+  namespace: codeby
+spec:
+  selector:
+    matchLabels:
+      app: nginx1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx1
+    spec:
+      containers:
+       - name: nginx1_container
+         image: nginx:latest
+         ports:
+           - containerPort: 80┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl get all -A 
+NAMESPACE     NAME                                   READY   STATUS    RESTARTS      AGE
+codeby        pod/nginx                              1/1     Running   0             98s
+kube-system   pod/coredns-5dd5756b68-mwztp           1/1     Running   1 (56m ago)   3d
+kube-system   pod/etcd-minikube                      1/1     Running   1 (56m ago)   3d
+kube-system   pod/kube-apiserver-minikube            1/1     Running   1 (56m ago)   3d
+kube-system   pod/kube-controller-manager-minikube   1/1     Running   1 (56m ago)   3d
+kube-system   pod/kube-proxy-687nn                   1/1     Running   1 (56m ago)   3d
+kube-system   pod/kube-scheduler-minikube            1/1     Running   1 (56m ago)   3d
+kube-system   pod/storage-provisioner                1/1     Running   3 (55m ago)   3d
+
+NAMESPACE     NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+default       service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP                  3d
+kube-system   service/kube-dns     ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   3d
+
+NAMESPACE     NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-system   daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   3d
+
+NAMESPACE     NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system   deployment.apps/coredns   1/1     1            1           3d
+
+NAMESPACE     NAME                                 DESIRED   CURRENT   READY   AGE
+kube-system   replicaset.apps/coredns-5dd5756b68   1         1         1       3d
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $cat nginx.yaml 
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: nginx-podyaml
+  namespace: codeby
+spec:
+  containers:
+    - name: nginx_containeryaml
+      image: nginx:latest
+      ports:
+        - containerPort: 80┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl apply -f nginx.yaml 
+error: resource mapping not found for name: "nginx-podyaml" namespace: "codeby" from "nginx.yaml": no matches for kind "Pod" in version "apps/v1"
+ensure CRDs are installed first
+┌─[✗]─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl get pods -A 
+NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+codeby        nginx                              1/1     Running   0             5m15s
+kube-system   coredns-5dd5756b68-mwztp           1/1     Running   1 (59m ago)   3d
+kube-system   etcd-minikube                      1/1     Running   1 (59m ago)   3d
+kube-system   kube-apiserver-minikube            1/1     Running   1 (59m ago)   3d
+kube-system   kube-controller-manager-minikube   1/1     Running   1 (59m ago)   3d
+kube-system   kube-proxy-687nn                   1/1     Running   1 (59m ago)   3d
+kube-system   kube-scheduler-minikube            1/1     Running   1 (59m ago)   3d
+kube-system   storage-provisioner                1/1     Running   3 (58m ago)   3d
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl apply -f nginx.yaml 
+pod/nginx-podyaml created
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl get pods -A 
+NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+codeby        nginx                              1/1     Running   0             5m49s
+codeby        nginx-podyaml                      1/1     Running   0             5s
+kube-system   coredns-5dd5756b68-mwztp           1/1     Running   1 (60m ago)   3d1h
+kube-system   etcd-minikube                      1/1     Running   1 (60m ago)   3d1h
+kube-system   kube-apiserver-minikube            1/1     Running   1 (60m ago)   3d1h
+kube-system   kube-controller-manager-minikube   1/1     Running   1 (60m ago)   3d1h
+kube-system   kube-proxy-687nn                   1/1     Running   1 (60m ago)   3d1h
+kube-system   kube-scheduler-minikube            1/1     Running   1 (60m ago)   3d1h
+kube-system   storage-provisioner                1/1     Running   3 (59m ago)   3d1h
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $cp nginx.yaml ./configs/
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $nano ./configs/nginx.yaml 
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $cat ./configs/nginx.yaml 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-podconfigs
+  namespace: codeby
+spec:
+  containers:
+    - name: nginx-containerconfigs
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl apply -f ./configs/ 
+pod/nginx-podconfigs created
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $kubectl get pods -A 
+NAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+codeby        nginx                              1/1     Running   0             7m31s
+codeby        nginx-podconfigs                   1/1     Running   0             4s
+codeby        nginx-podyaml                      1/1     Running   0             107s
+kube-system   coredns-5dd5756b68-mwztp           1/1     Running   1 (61m ago)   3d1h
+kube-system   etcd-minikube                      1/1     Running   1 (61m ago)   3d1h
+kube-system   kube-apiserver-minikube            1/1     Running   1 (61m ago)   3d1h
+kube-system   kube-controller-manager-minikube   1/1     Running   1 (61m ago)   3d1h
+kube-system   kube-proxy-687nn                   1/1     Running   1 (61m ago)   3d1h
+kube-system   kube-scheduler-minikube            1/1     Running   1 (61m ago)   3d1h
+kube-system   storage-provisioner                1/1     Running   3 (61m ago)   3d1h
+┌─[pasqueque@pasqueque-comp]─[~/Documents/DevOpsCodeby/homework/lesson19]
+└──╼ $exit
+exit
+Script done.

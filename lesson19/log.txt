@@ -1,0 +1,181 @@
+Script started on 2024-01-25 00:13:44+05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="190" LINES="44"]
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl cluster-info 
+[?2004l[0;32mKubernetes control plane[0m is running at [0;33mhttps://192.168.59.100:8443[0m
+[0;32mCoreDNS[0m is running at [0;33mhttps://192.168.59.100:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy[0m
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl cluster-info [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P g e t [C a l l [C - A 
+[?2004lNAMESPACE     NAME                                   READY   STATUS    RESTARTS      AGE
+kube-system   pod/coredns-5dd5756b68-mwztp           1/1     Running   1 (51m ago)   3d
+kube-system   pod/etcd-minikube                      1/1     Running   1 (51m ago)   3d
+kube-system   pod/kube-apiserver-minikube            1/1     Running   1 (51m ago)   3d
+kube-system   pod/kube-controller-manager-minikube   1/1     Running   1 (51m ago)   3d
+kube-system   pod/kube-proxy-687nn                   1/1     Running   1 (51m ago)   3d
+kube-system   pod/kube-scheduler-minikube            1/1     Running   1 (51m ago)   3d
+kube-system   pod/storage-provisioner                1/1     Running   3 (50m ago)   3d
+
+NAMESPACE     NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+default       service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP                  3d
+kube-system   service/kube-dns     ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   3d
+
+NAMESPACE     NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-system   daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   3d
+
+NAMESPACE     NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system   deployment.apps/coredns   1/1     1            1           3d
+
+NAMESPACE     NAME                                 DESIRED   CURRENT   READY   AGE
+kube-system   replicaset.apps/coredns-5dd5756b68   1         1         1       3d
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl cra[Keate namespace codeby
+[?2004lnamespace/codeby created
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl create namespace codeby[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Pget all -A [1P[1P[1P[1@n[1@a[1@m[1@e[1@s[1@p[1@a[1@c[1@e[1@s[1P
+[?2004lNAME              STATUS   AGE
+codeby            Active   9s
+default           Active   3d
+kube-node-lease   Active   3d
+kube-public       Active   3d
+kube-system       Active   3d
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0m[K[0;31m└──╼ [0m[01;33m$[0m[7mkubectl run nginx --image=nginx --namespace=codeby[27m
+[A[C[C[C[C[C[Ckubectl run nginx --image=nginx --namespace=codeby
+[?2004lpod/nginx created
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl run nginx --image=nginx --namespace=codeby[C[C[C[C[C[C[C[C[C[C[C[C[C[C[25Pget namespace -A [C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@p[1@o[1@d[1@s
+[?2004lNAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+codeby        nginx                              1/1     Running   0             6s
+kube-system   coredns-5dd5756b68-mwztp           1/1     Running   1 (54m ago)   3d
+kube-system   etcd-minikube                      1/1     Running   1 (54m ago)   3d
+kube-system   kube-apiserver-minikube            1/1     Running   1 (54m ago)   3d
+kube-system   kube-controller-manager-minikube   1/1     Running   1 (54m ago)   3d
+kube-system   kube-proxy-687nn                   1/1     Running   1 (54m ago)   3d
+kube-system   kube-scheduler-minikube            1/1     Running   1 (54m ago)   3d
+kube-system   storage-provisioner                1/1     Running   3 (53m ago)   3d
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mcat nginx.yaml 
+[?2004lapiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx1-deployment
+  namespace: codeby
+spec:
+  selector:
+    matchLabels:
+      app: nginx1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx1
+    spec:
+      containers:
+       - name: nginx1_container
+         image: nginx:latest
+         ports:
+           - containerPort: 80[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mcat nginx.yaml [C[C[C[C[C[C[Kcat nginx.yaml [C[C[C[C[C[C[5@kubectl get pods -A[C[1P[1P[1P[1P[1@a[1@l[1@l
+[?2004lNAMESPACE     NAME                                   READY   STATUS    RESTARTS      AGE
+codeby        pod/nginx                              1/1     Running   0             98s
+kube-system   pod/coredns-5dd5756b68-mwztp           1/1     Running   1 (56m ago)   3d
+kube-system   pod/etcd-minikube                      1/1     Running   1 (56m ago)   3d
+kube-system   pod/kube-apiserver-minikube            1/1     Running   1 (56m ago)   3d
+kube-system   pod/kube-controller-manager-minikube   1/1     Running   1 (56m ago)   3d
+kube-system   pod/kube-proxy-687nn                   1/1     Running   1 (56m ago)   3d
+kube-system   pod/kube-scheduler-minikube            1/1     Running   1 (56m ago)   3d
+kube-system   pod/storage-provisioner                1/1     Running   3 (55m ago)   3d
+
+NAMESPACE     NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+default       service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP                  3d
+kube-system   service/kube-dns     ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   3d
+
+NAMESPACE     NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-system   daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   3d
+
+NAMESPACE     NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system   deployment.apps/coredns   1/1     1            1           3d
+
+NAMESPACE     NAME                                 DESIRED   CURRENT   READY   AGE
+kube-system   replicaset.apps/coredns-5dd5756b68   1         1         1       3d
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl get all -A [C[C[C[C[C[C[4Pcat nginx.yaml[C
+[?2004lapiVersion: apps/v1
+kind: Pod
+metadata:
+  name: nginx-podyaml
+  namespace: codeby
+spec:
+  containers:
+    - name: nginx_containeryaml
+      image: nginx:latest
+      ports:
+        - containerPort: 80[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mcat nginx.yaml [C[C[C[C[C[C[4@kubectl get all -A[C[C[C[C[C[C[C[4Pcat nginx.yaml[C[C[C[C[C[C[C[5@kubectl get pods -A[Crun nginx --image=nginx --namespace=codeby[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kapply -f nginx.yaml 
+[?2004lerror: resource mapping not found for name: "nginx-podyaml" namespace: "codeby" from "nginx.yaml": no matches for kind "Pod" in version "apps/v1"
+ensure CRDs are installed first
+[?2004h[0;31m┌─[[0;31m✗[0;37m]─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl apply -f nginx.yaml [C[C[C[C[C[C[13Pcat[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4@kubectl get all -A[C[C[C[C[C[C[C[4Pcat nginx.yaml[C[C[C[C[C[C[C[5@kubectl get pods -A[C
+[?2004lNAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+codeby        nginx                              1/1     Running   0             5m15s
+kube-system   coredns-5dd5756b68-mwztp           1/1     Running   1 (59m ago)   3d
+kube-system   etcd-minikube                      1/1     Running   1 (59m ago)   3d
+kube-system   kube-apiserver-minikube            1/1     Running   1 (59m ago)   3d
+kube-system   kube-controller-manager-minikube   1/1     Running   1 (59m ago)   3d
+kube-system   kube-proxy-687nn                   1/1     Running   1 (59m ago)   3d
+kube-system   kube-scheduler-minikube            1/1     Running   1 (59m ago)   3d
+kube-system   storage-provisioner                1/1     Running   3 (58m ago)   3d
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl get pods -A [8@apply -f nginx.yaml[C
+[?2004lpod/nginx-podyaml created
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl apply -f nginx.yaml [C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Pget pods -A[C
+[?2004lNAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+codeby        nginx                              1/1     Running   0             5m49s
+codeby        nginx-podyaml                      1/1     Running   0             5s
+kube-system   coredns-5dd5756b68-mwztp           1/1     Running   1 (60m ago)   3d1h
+kube-system   etcd-minikube                      1/1     Running   1 (60m ago)   3d1h
+kube-system   kube-apiserver-minikube            1/1     Running   1 (60m ago)   3d1h
+kube-system   kube-controller-manager-minikube   1/1     Running   1 (60m ago)   3d1h
+kube-system   kube-proxy-687nn                   1/1     Running   1 (60m ago)   3d1h
+kube-system   kube-scheduler-minikube            1/1     Running   1 (60m ago)   3d1h
+kube-system   storage-provisioner                1/1     Running   3 (59m ago)   3d1h
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mcp nginx.yaml ./configs/
+[?2004l[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mnano ./configs/nginx.yaml 
+[?2004l[?2004h[?1049h[22;0;0t[1;45r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[43;89H(B[0;7m[ Reading... ](B[m[43;87H(B[0;7m[ Read 11 lines ](B[m[H(B[0;7m  GNU nano 5.4                                                                         ./configs/nginx.yaml                                                                                   [1;189H(B[m[44d(B[0;7m^H(B[m Help[44;18H(B[0;7m^O(B[m Read File     (B[0;7m^R(B[m Replace[52G(B[0;7m^V(B[m Paste[44;69H(B[0;7m^G(B[m Go To Line    (B[0;7m^Y(B[m Redo[44;103H(B[0;7mM-6(B[m Copy[44;120H(B[0;7m^Q(B[m Where Was     (B[0;7mM-W(B[m Next[44;154H(B[0;7m▶(B[m Forward[44;171H(B[0;7m^▶(B[m Next Word[45d(B[0;7m^X(B[m Exit[45;18H(B[0;7m^F(B[m Where Is[35G(B[0;7m^K(B[m Cut[45;52H(B[0;7m^T(B[m Execute[69G(B[0;7m^Z(B[m Undo[45;86H(B[0;7mM-A(B[m Set Mark     (B[0;7mM-](B[m To Bracket   (B[0;7mM-Q(B[m Previous     (B[0;7m^B(B[m Back[45;154H(B[0;7m^◀(B[m Prev Word     (B[0;7m^A(B[m Home[2dapiVersion: v1[3dkind: Pod[4dmetadata:[5;3Hname: nginx-podyaml[6;3Hnamespace: codeby[7dspec:[8;3Hcontainers:[9;5H- name: nginx-containeryaml[10;7Himage: nginx:latest[11;7Hports:[12;9H- containerPort: 80[2d[?12l[?25h[?25l[43;69H(B[0;7m[ line 2/12 (16%), col 1/10 (10%), char 15/196 (7%) ](B[m[3d[?12l[?25h[?25l[43;76H(B[0;7m3/12 (25[43;109H2[117G12%) ](B[m[4d[?12l[?25h[?25l[43;76H(B[0;7m4/12 (33[43;94H22 (4%), char 35/196 (17%) ](B[m[K[5d[?12l[?25h[?25l[43;92H(B[0;7m2/22 (9[43;109H6[117G8%) ](B[m[5d [?12l[?25h[?25l[43;92H(B[0;7m3/22 (13%), char 37/196 (18%) ](B[m[5;3H[?12l[?25h[?25l[43;92H(B[0;7m4[99G8[43;110H8[118G9%) ](B[m[5;4H[?12l[?25h[?25l[43;92H(B[0;7m5/22 (22[43;110H9[43;123H(B[m[5;5H[?12l[?25h[?25l[43;92H(B[0;7m6[99G7[43;109H40[117G20%) ](B[m[5;6H[?12l[?25h[?25l[43;92H(B[0;7m7/22 (31[43;110H1[43;123H(B[m[5;7H[?12l[?25h[?25l[43;92H(B[0;7m8[99G6[43;110H2[118G1%) ](B[m[5;8H[?12l[?25h[?25l[43;92H(B[0;7m9/22 (40[43;110H3[43;123H(B[m[5;9H[?12l[?25h[?25l[43;68H(B[0;7m[ line 4/12 (33%), col 10[99G5[43;110H4[118G2%) ](B[m[5;10H[?12l[?25h[?25l[43;92H(B[0;7m1/22 (50[43;110H5[43;123H(B[m[5;11H[?12l[?25h[?25l[43;92H(B[0;7m2[99G4[43;110H6[118G3%) ](B[m[5;12H[?12l[?25h[?25l[43;92H(B[0;7m3[99G9[43;110H7[43;123H(B[m[5;13H[?12l[?25h[?25l[43;92H(B[0;7m4/22 (63[43;110H8[118G4%) ](B[m[5;14H[?12l[?25h[?25l[43;92H(B[0;7m5[99G8[43;110H9[118G5%) ](B[m[5;15H[?12l[?25h[?25l[43;92H(B[0;7m6/22 (72[43;109H50[43;123H(B[m[5;16H[?12l[?25h[?25l[43;92H(B[0;7m7[99G7[43;110H1[118G6%) ](B[m[5;17H[?12l[?25h[?25l[43;92H(B[0;7m8/22 (81[43;110H2[43;123H(B[m[5;18H[?12l[?25h[?25l[43;92H(B[0;7m9[99G6[43;110H3[118G7%) ](B[m[5;19H[?12l[?25h[?25l[43;91H(B[0;7m20/22 (90[43;110H4[43;123H(B[m[5;20H[?12l[?25h[?25l[43;92H(B[0;7m1[99G5[43;110H5[118G8%) ](B[m[5;21H[?12l[?25h[?25l[43;92H(B[0;7m2/22 (100%), char 56/196 (28%) ](B[m[5;22H[?12l[?25h[?25l[1;181H(B[0;7mModified(B[m[43;92H(B[0;7m1/21[43;111H5/195[43;124H(B[m[5;21H [?12l[?25h[?25l[43;92H(B[0;7m0/20[43;111H4/194 (27%) ](B[m[5;20H [?12l[?25h[?25l[43;91H(B[0;7m19/19[43;111H3/193[43;124H(B[m[5;19H [?12l[?25h[?25l[43;92H(B[0;7m8/18[43;111H2/192[43;124H(B[m[5;18H [?12l[?25h[?25l[43;92H(B[0;7m9/19[43;111H3/193[43;124H(B[m[5;18Hc[?12l[?25h[?25l[43;91H(B[0;7m20/20[43;111H4/194[43;124H(B[m[5;19Ho[?12l[?25h[?25l[43;92H(B[0;7m1/21[43;111H5/195 (28%) ](B[m[5;20Hn[?12l[?25h[?25l[43;92H(B[0;7m2/22[43;111H6/196[43;124H(B[m[5;21Hf[?12l[?25h[?25l[43;92H(B[0;7m3/23[43;111H7/197[43;124H(B[m[5;22Hi[?12l[?25h[?25l[43;92H(B[0;7m4/24[43;111H8/198 (29%) ](B[m[5;23Hg[?12l[?25h[?25l[43;92H(B[0;7m5/25[43;111H9/199[43;124H(B[m[5;24Hs[?12l[?25h[?25l[43;75H(B[0;7m5/12 (41[43;92H0/20[43;110H7[118G3[124G(B[m[6;20H[?12l[?25h[?25l[43;68H (B[0;7m[ line 6/12 (50%), col 6/6 (100%), char 85/199 (42%) ](B[m[K[7;6H[?12l[?25h[?25l[43;68H(B[0;7m[ line 7/12 (58%), col 14/14 (100%), char 99/199 (49%) ](B[m[8;14H[?12l[?25h[?25l[43;75H(B[0;7m8/12 (66[43;91H25/32 (78%), char 124[118G62%) ](B[m[9;25H[?12l[?25h[?25l[43;92H(B[0;7m6/32 (81[43;111H5[43;124H(B[m[9;26H[?12l[?25h[?25l[43;92H(B[0;7m7[99G4[43;111H6[119G3%) ](B[m[9;27H[?12l[?25h[?25l[43;92H(B[0;7m8[99G7[43;111H7[43;124H(B[m[9;28H[?12l[?25h[?25l[43;92H(B[0;7m9/32 (90[43;111H8[119G4%) ](B[m[9;29H[?12l[?25h[?25l[43;91H(B[0;7m30[99G3[43;111H9[43;124H(B[m[9;30H[?12l[?25h[?25l[43;92H(B[0;7m1[99G6[43;110H30[119G5%) ](B[m[9;31H[?12l[?25h[?25l[43;67H(B[0;7m[ line 8/12 (66%), col 32/32 (100[43;111H1[43;124H(B[m[9;32H[?12l[?25h[?25l[43;91H(B[0;7m1/31[43;111H0/198[43;124H(B[m[9;31H [?12l[?25h[?25l[43;91H(B[0;7m0/30[43;110H29/197[43;124H(B[m[9;30H [?12l[?25h[?25l[43;90H(B[0;7m29/29[43;111H8/196[43;124H(B[m[9;29H [?12l[?25h[?25l[43;91H(B[0;7m8/28[43;111H7/195[43;124H(B[m[9;28H [?12l[?25h[?25l[43;91H(B[0;7m9/29[43;111H8/196[43;124H(B[m[9;28Hc[?12l[?25h[?25l[43;90H(B[0;7m30/30[43;111H9/197[43;124H(B[m[9;29Ho[?12l[?25h[?25l[43;91H(B[0;7m1/31[43;110H30/198[43;124H(B[m[9;30Hn[?12l[?25h[?25l[43;91H(B[0;7m2/32[43;111H1/199[43;124H(B[m[9;31Hf[?12l[?25h[?25l[43;91H(B[0;7m3/33[43;111H2/200 (66%) ](B[m[9;32Hi[?12l[?25h[?25l[43;91H(B[0;7m4/34[43;111H3/201[43;124H(B[m[9;33Hs[?12l[?25h[?25l[43;91H(B[0;7m3/33[43;111H2/200[43;124H(B[m[9;33H [?12l[?25h[?25l[43;91H(B[0;7m4/34[43;111H3/201[43;124H(B[m[9;33Hg[?12l[?25h[?25l[43;91H(B[0;7m5/35[43;111H4/202[43;124H(B[m[9;34Hs[?12l[?25h[?25l[43d(B[0;7mSave modified buffer?                                                                                                                                                                         [44;1H Y(B[m Yes[K[45d(B[0;7m N(B[m No  [45;17H(B[0;7m^C(B[m Cancel[K[43;23H[?12l[?25h[?25l[44d(B[0;7m^H(B[m Help[44;48H(B[0;7mM-D(B[m DOS Format[44;95H(B[0;7mM-A(B[m Append[44;142H(B[0;7mM-B(B[m Backup File[45d(B[0;7m^C(B[m Cancel[17G         [45;48H(B[0;7mM-M(B[m Mac Format[45;95H(B[0;7mM-P(B[m Prepend[45;142H(B[0;7m^T(B[m Browse[43d(B[0;7mFile Name to Write: ./configs/nginx.yaml(B[m[?12l[?25h[?25l[43;88H[1K (B[0;7m[ Writing... ](B[m[K[1;181H(B[0;7m        (B[m[43;87H(B[0;7m[ Wrote 11 lines ](B[m[J[45d[?12l[?25h[45;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mnano ./configs/nginx.yaml [C[1P[1P[1P[1P[1@c[1@a[1@t
+[?2004lapiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-podconfigs
+  namespace: codeby
+spec:
+  containers:
+    - name: nginx-containerconfigs
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mcat ./configs/nginx.yaml [C[C[C[C[C[C[1@nano[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pcp nginx.yaml ./configs/[C[C[C[C[C[C[4Pkubectl get pods -A [8@apply -f nginx.yaml[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Pget pods -A[C[8@apply -f nginx.yaml[C[1P [1P [1P [1P [1P [1P [1P [1P [1P [1P . / c n [1P o nfigs/ 
+[?2004lpod/nginx-podconfigs created
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mkubectl apply -f ./configs/ [C[C[C[C[C[C[3Pcat ./configs/nginx.yaml[C[C[C[C[C[C[C[1@nano[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pcp nginx.yaml ./configs/[C[C[C[C[C[C[4Pkubectl get pods -A 
+[?2004lNAMESPACE     NAME                               READY   STATUS    RESTARTS      AGE
+codeby        nginx                              1/1     Running   0             7m31s
+codeby        nginx-podconfigs                   1/1     Running   0             4s
+codeby        nginx-podyaml                      1/1     Running   0             107s
+kube-system   coredns-5dd5756b68-mwztp           1/1     Running   1 (61m ago)   3d1h
+kube-system   etcd-minikube                      1/1     Running   1 (61m ago)   3d1h
+kube-system   kube-apiserver-minikube            1/1     Running   1 (61m ago)   3d1h
+kube-system   kube-controller-manager-minikube   1/1     Running   1 (61m ago)   3d1h
+kube-system   kube-proxy-687nn                   1/1     Running   1 (61m ago)   3d1h
+kube-system   kube-scheduler-minikube            1/1     Running   1 (61m ago)   3d1h
+kube-system   storage-provisioner                1/1     Running   3 (61m ago)   3d1h
+[?2004h[0;31m┌─[[0;39mpasqueque[01;33m@[01;96mpasqueque-comp[0;31m]─[[0;32m~/Documents/DevOpsCodeby/homework/lesson19[0;31m]
+[0;31m└──╼ [0m[01;33m$[0mei[Kxit
+[?2004lexit
+
+Script done on 2024-01-25 00:24:28+05:00 [COMMAND_EXIT_CODE="0"]
