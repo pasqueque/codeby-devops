@@ -1,0 +1,45 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.9.0'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
+
+    environment {
+        GITHUB_CRED = "github-ssh"
+        GITHUB_URL = "https://github.com/pasqueque/codeby-devops"
+        APP_DIR = 'lesson26/devops-app'
+    }
+
+    stages {
+
+        stage('check out') {
+            steps {
+                git branch: 'lesson26', changelog: false, credentialsId: env.GITHUB_CRED, poll: false, url: env.GITHUB_URL
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir(env.APP_DIR){
+                    sh 'mvn -B -DskipTests clean package'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir(env.APP_DIR){
+                    sh 'mvn test'
+                }
+            }
+            post {
+                always {
+                    junit("${env.APP_DIR}/target/surefire-reports/*.xml")
+                }
+            }
+        }
+    }
+}
+//test-new-commit
