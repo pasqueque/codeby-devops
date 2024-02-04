@@ -9,7 +9,7 @@ pipeline {
     environment {
         GITHUB_CRED = "github-ssh"
         GITHUB_URL = "https://github.com/pasqueque/codeby-devops"
-        APPS = ['lesson26/devops-app', 'lesson26/jenkins-app', 'lesson26/world-app']
+        APPS = ["lesson26/devops-app", "lesson26/jenkins-app", "lesson26/world-app"]
     }
 
     stages {
