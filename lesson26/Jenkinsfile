@@ -22,55 +22,48 @@ pipeline {
         }
 
         stage('Build and Test') {
-            parallel {
-                stage("${env.APP_DEVOPS}") {
-                    steps {
-                        dir(env.APP_DEVOPS) {
-                            script {
-                                sh 'mvn -B -DskipTests clean package'
-                                sh 'mvn test'
-                            }
-                        }
-                    }
-                    post {
-                        always {
-                            junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
+            parallel "DevOps": {
+                steps {
+                    dir("${env.APP_DEVOPS}") {
+                        script {
+                            sh 'mvn -B -DskipTests clean package'
+                            sh 'mvn test'
                         }
                     }
                 }
-
-                stage("${env.APP_JENKINS}") {
-                    steps {
-                        dir(env.APP_JENKINS) {
-                            script {
-                                sh 'mvn -B -DskipTests clean package'
-                                sh 'mvn test'
-                            }
-                        }
+                post {
+                    always {
+                        junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
                     }
-                    post {
-                        always {
-                            junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
+                }
+            }, "Jenkins": {
+                steps {
+                    dir("${env.APP_JENKINS}") {
+                        script {
+                            sh 'mvn -B -DskipTests clean package'
+                            sh 'mvn test'
                         }
                     }
                 }
-
-                stage("${env.APP_WORLD}") {
-                    steps {
-                        dir(env.APP_WORLD) {
-                            script {
-                                sh 'mvn -B -DskipTests clean package'
-                                sh 'mvn test'
-                            }
-                        }
+                post {
+                    always {
+                        junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
                     }
-                    post {
-                        always {
-                            junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
+                }
+            }, "World": {
+                steps {
+                    dir("${env.APP_WORLD}") {
+                        script {
+                            sh 'mvn -B -DskipTests clean package'
+                            sh 'mvn test'
                         }
                     }
                 }
-
+                post {
+                    always {
+                        junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
+                    }
+                }
             }
         }
     }
