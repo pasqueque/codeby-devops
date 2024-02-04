@@ -9,7 +9,7 @@ pipeline {
     environment {
         GITHUB_CRED = "github-ssh"
         GITHUB_URL = "https://github.com/pasqueque/codeby-devops"
-        APP_DIR = 'lesson26/devops-app'
+        APP_DIR = 'multibranchpipeline_lesson26/lesson26/devops-app'
     }
 
     stages {
