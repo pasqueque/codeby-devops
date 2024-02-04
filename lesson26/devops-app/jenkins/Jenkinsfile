@@ -16,7 +16,7 @@ pipeline {
 
         stage('check out') {
             steps {
-                git branch: 'main', changelog: false, credentials Id: env.GITHUB_CRED, poll: false, url: env.GITHUB_URL
+                git branch: 'main', changelog: false, credentialsId: env.GITHUB_CRED, poll: false, url: env.GITHUB_URL
             }
         }
 
