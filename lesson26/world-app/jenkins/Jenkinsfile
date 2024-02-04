@@ -16,13 +16,13 @@ pipeline {
 
         stage('check out') {
             steps {
-                git branch: 'main', changelog: false, credentials Id: env.GITHUB_CRED, poll: false, url: env.GITHUB_URL
+                git branch: 'lesson26', changelog: false, credentialsId: env.GITHUB_CRED, poll: false, url: env.GITHUB_URL
             }
         }
 
         stage('Build') {
             steps {
-                dir(env.APP_DIR) {
+                dir(env.APP_DIR){
                     sh 'mvn -B -DskipTests clean package'
                 }
             }
@@ -30,13 +30,13 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir(env.APP_DIR) {
+                dir(env.APP_DIR){
                     sh 'mvn test'
                 }
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    junit("${env.APP_DIR}/target/surefire-reports/*.xml")
                 }
             }
         }
