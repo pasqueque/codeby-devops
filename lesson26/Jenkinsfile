@@ -22,9 +22,27 @@ pipeline {
         }
 
         stage('Build and Test') {
-            parallel "DevOps": {
+            steps {
+                script {
+                    def appResults = [:]
+                    parallel "DevOps": {
+                        appResults['DevOps'] = buildApp("${env.APP_DEVOPS}")
+                    }, "Jenkins": {
+                        appResults['Jenkins'] = buildApp("${env.APP_JENKINS}")
+                    }, "World": {
+                        appResults['World'] = buildApp("${env.APP_WORLD}")
+                    }
+                    echo "Results: ${appResults}"
+                }
+            }
+        }
+    }
+
+    def buildApp(appName) {
+        return {
+            stage("Build and Test ${appName}") {
                 steps {
-                    dir("${env.APP_DEVOPS}") {
+                    dir("${appName}") {
                         script {
                             sh 'mvn -B -DskipTests clean package'
                             sh 'mvn test'
@@ -33,35 +51,7 @@ pipeline {
                 }
                 post {
                     always {
-                        junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
-                    }
-                }
-            }, "Jenkins": {
-                steps {
-                    dir("${env.APP_JENKINS}") {
-                        script {
-                            sh 'mvn -B -DskipTests clean package'
-                            sh 'mvn test'
-                        }
-                    }
-                }
-                post {
-                    always {
-                        junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
-                    }
-                }
-            }, "World": {
-                steps {
-                    dir("${env.APP_WORLD}") {
-                        script {
-                            sh 'mvn -B -DskipTests clean package'
-                            sh 'mvn test'
-                        }
-                    }
-                }
-                post {
-                    always {
-                        junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
+                        junit("${appName}/target/surefire-reports/*.xml")
                     }
                 }
             }
