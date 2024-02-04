@@ -9,7 +9,9 @@ pipeline {
     environment {
         GITHUB_CRED = "github-ssh"
         GITHUB_URL = "https://github.com/pasqueque/codeby-devops"
-        APPS = ["lesson26/devops-app", "lesson26/jenkins-app", "lesson26/world-app"]
+        APP_DEVOPS = "lesson26/devops-app"
+        APP_JENKINS = "lesson26/jenkins-app"
+        APP_WORLD = "lesson26/world-app"
     }
 
     stages {
@@ -21,23 +23,54 @@ pipeline {
 
         stage('Build and Test') {
             parallel {
-                for (appDir in env.APPS) {
-                    stage("${appDir}") {
-                        steps {
-                            dir(appDir) {
-                                script {
-                                    sh 'mvn -B -DskipTests clean package'
-                                    sh 'mvn test'
-                                }
-                            }
-                        }
-                        post {
-                            always {
-                                junit("${appDir}/target/surefire-reports/*.xml")
+                stage("${env.APP_DEVOPS}") {
+                    steps {
+                        dir(env.APP_DEVOPS) {
+                            script {
+                                sh 'mvn -B -DskipTests clean package'
+                                sh 'mvn test'
                             }
                         }
                     }
+                    post {
+                        always {
+                            junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
+                        }
+                    }
                 }
+
+                stage("${env.APP_JENKINS}") {
+                    steps {
+                        dir(env.APP_JENKINS) {
+                            script {
+                                sh 'mvn -B -DskipTests clean package'
+                                sh 'mvn test'
+                            }
+                        }
+                    }
+                    post {
+                        always {
+                            junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
+                        }
+                    }
+                }
+
+                stage("${env.APP_WORLD}") {
+                    steps {
+                        dir(env.APP_WORLD) {
+                            script {
+                                sh 'mvn -B -DskipTests clean package'
+                                sh 'mvn test'
+                            }
+                        }
+                    }
+                    post {
+                        always {
+                            junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
+                        }
+                    }
+                }
+
             }
         }
     }
