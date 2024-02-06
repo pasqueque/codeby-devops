@@ -32,14 +32,16 @@ pipeline {
                     def changedApps = []
                     // Определяем измененные приложения
                     def diff = sh 'git diff --name-only HEAD^ HEAD'
-                    if (diff.contains("${env.APP_DEVOPS}/") || diff.contains("${env.APP_DEVOPS}")) {
-                        changedApps.add(env.APP_DEVOPS)
-                    }
-                    if (diff.contains("${env.APP_JENKINS}/") || diff.contains("${env.APP_JENKINS}")) {
-                        changedApps.add(env.APP_JENKINS)
-                    }
-                    if (diff.contains("${env.APP_WORLD}/") || diff.contains("${env.APP_WORLD}")) {
-                        changedApps.add(env.APP_WORLD)
+                    if (diff != null) {
+                        if (diff.contains("${env.APP_DEVOPS}/") || diff.contains("${env.APP_DEVOPS}")) {
+                            changedApps.add(env.APP_DEVOPS)
+                        }
+                        if (diff.contains("${env.APP_JENKINS}/") || diff.contains("${env.APP_JENKINS}")) {
+                            changedApps.add(env.APP_JENKINS)
+                        }
+                        if (diff.contains("${env.APP_WORLD}/") || diff.contains("${env.APP_WORLD}")) {
+                            changedApps.add(env.APP_WORLD)
+                        }
                     }
 
                     parallel {
