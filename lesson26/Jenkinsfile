@@ -14,6 +14,10 @@ pipeline {
         APP_WORLD = "lesson26/world-app"
     }
 
+    triggers {
+        pollSCM('H/15 * * * *')
+    }
+
     stages {
         stage('Check out') {
             steps {
@@ -23,7 +27,7 @@ pipeline {
 
         stage('Build and Test') {
             parallel {
-                stage('${env.APP_DEVOPS}') {
+                stage("${env.APP_DEVOPS}") {
                     steps {
                         dir(env.APP_DEVOPS) {
                             script {
@@ -39,7 +43,7 @@ pipeline {
                     }
                 }
 
-                stage('${env.APP_JENKINS}') {
+                stage("${env.APP_JENKINS}") {
                     steps {
                         dir(env.APP_JENKINS) {
                             script {
@@ -55,7 +59,7 @@ pipeline {
                     }
                 }
 
-                stage('${env.APP_WORLD}') {
+                stage("${env.APP_WORLD}") {
                     steps {
                         dir(env.APP_WORLD) {
                             script {
