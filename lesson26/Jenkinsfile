@@ -14,9 +14,9 @@ pipeline {
         APP_WORLD = "lesson26/world-app"
     }
 
-    triggers {
-        pollSCM('H/2 * * * *')
-    }
+    //triggers {
+    //    pollSCM('H/2 * * * *')
+    //}
 
     stages {
         stage('Check out') {
@@ -29,7 +29,7 @@ pipeline {
 
             steps {
                 //script {
-                    def changedApps = []
+                    //def changedApps = []
                     // Определяем измененные приложения
                     /*def diff = sh(script: 'git diff --name-only HEAD^ HEAD', returnStdout: true)
                     if (diff != null) {
