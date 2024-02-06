@@ -2,6 +2,7 @@ package com.mycompany.app;
 
 /**
  * Hello world!
+ * test hello jenkins build
  */
 public class App {
 
