@@ -70,6 +70,7 @@ pipeline {
                                 //stash includes: "${env.APP_JENKINS}/target/*.jar", name: "jenkins-app"                                }
                             }
                         }
+                    }
 
                     stage(APP_WORLD) {
                             /*when {
