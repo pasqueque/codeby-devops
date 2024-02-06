@@ -14,10 +14,6 @@ pipeline {
         APP_WORLD = "lesson26/world-app"
     }
 
-    //triggers {
-    //    pollSCM('H/2 * * * *')
-    //}
-
     stages {
         stage('Check out') {
             steps {
@@ -26,83 +22,61 @@ pipeline {
         }
 
         stage('Build and Test') {
-            steps {
-                parallel {
-                    stage(APP_DEVOPS) {
-                        /*when {
-                            expression { changedApps.contains(env.APP_DEVOPS) }
-                        }*/
-                        when { changeset "${env.APP_DEVOPS}/*"}
-                        steps {
-                            dir(env.APP_DEVOPS) {
-                                script {
-                                    sh 'mvn -B -DskipTests clean package'
-                                    sh 'mvn test'
-                                }
-                            }
-                        }
-                        post {
-                            always {
-                                junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
-                                archiveArtifacts "${env.APP_DEVOPS}/target/*.jar"
-                                //stash includes: "${env.APP_DEVOPS}/target/*.jar", name: "devops-app"
+            parallel {
+                stage('Build and test DevOps app') {
+                    when { changeset "${env.APP_DEVOPS}/*" }
+                    steps {
+                        dir(env.APP_DEVOPS) {
+                            script {
+                                sh 'mvn -B -DskipTests clean package'
+                                sh 'mvn test'
                             }
                         }
                     }
-
-                    stage(APP_JENKINS) {
-                            /*when {
-                                expression { changedApps.contains(env.APP_JENKINS) }
-                            }*/
-                        when { changeset "${env.APP_JENKINS}/*"}
-                        steps {
-                            dir(env.APP_JENKINS) {
-                                script {
-                                    sh 'mvn -B -DskipTests clean package'
-                                    sh 'mvn test'
-                                }
-                            }
+                    post {
+                        always {
+                            junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
+                            archiveArtifacts "${env.APP_DEVOPS}/target/*.jar"
                         }
-                        post {
-                            always {
-                                junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
-                                archiveArtifacts "${env.APP_JENKINS}/target/*.jar"
-                                //stash includes: "${env.APP_JENKINS}/target/*.jar", name: "jenkins-app"                                }
+                    }
+                }
+
+                stage('Build and test Jenkins app') {
+                    when { changeset "${env.APP_JENKINS}/*" }
+                    steps {
+                        dir(env.APP_JENKINS) {
+                            script {
+                                sh 'mvn -B -DskipTests clean package'
+                                sh 'mvn test'
                             }
                         }
                     }
+                    post {
+                        always {
+                            junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
+                            archiveArtifacts "${env.APP_JENKINS}/target/*.jar"
+                        }
+                    }
+                }
 
-                    stage(APP_WORLD) {
-                            /*when {
-                                expression { changedApps.contains(env.APP_WORLD) }
-                            }*/
-                        when { changeset "${env.APP_WORLD}/*"}
-                        steps {
-                            dir(env.APP_WORLD) {
-                                script {
-                                    sh 'mvn -B -DskipTests clean package'
-                                    sh 'mvn test'
-                                }
+                stage('Build and test World app') {
+                    when { changeset "${env.APP_WORLD}/*" }
+                    steps {
+                        dir(env.APP_WORLD) {
+                            script {
+                                sh 'mvn -B -DskipTests clean package'
+                                sh 'mvn test'
                             }
                         }
-                        post {
-                            always {
-                                junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
-                                archiveArtifacts "${env.APP_WORLD}/target/*.jar"
-                                //stash includes: "${env.APP_WORLD}/target/*.jar", name: "world-app"
-                            }
+                    }
+                    post {
+                        always {
+                            junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
+                            archiveArtifacts "${env.APP_WORLD}/target/*.jar"
                         }
                     }
                 }
             }
         }
     }
-
-    /*post {
-        always {
-            unstash 'devops-app'
-            unstash 'jenkins-app'
-            unstash 'world-app'
-        }
-    }*/
 }
