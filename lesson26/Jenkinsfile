@@ -24,7 +24,7 @@ pipeline {
         stage('Build and Test') {
             parallel {
                 stage('Build and test DevOps app') {
-                    when { changeset "${env.APP_DEVOPS}/*" }
+                    when { changeset "${env.APP_DEVOPS}/src/main/java/com/mycompany/app/*" }
                     steps {
                         dir(env.APP_DEVOPS) {
                             script {
@@ -42,7 +42,7 @@ pipeline {
                 }
 
                 stage('Build and test Jenkins app') {
-                    when { changeset "${env.APP_JENKINS}/*" }
+                    when { changeset "${env.APP_JENKINS}/src/main/java/com/mycompany/app/*" }
                     steps {
                         dir(env.APP_JENKINS) {
                             script {
@@ -60,7 +60,7 @@ pipeline {
                 }
 
                 stage('Build and test World app') {
-                    when { changeset "${env.APP_WORLD}/*" }
+                    when { changeset "${env.APP_WORLD}/src/main/java/com/mycompany/app/*" }
                     steps {
                         dir(env.APP_WORLD) {
                             script {
