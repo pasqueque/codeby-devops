@@ -31,7 +31,7 @@ pipeline {
                 script {
                     def changedApps = []
                     // Определяем измененные приложения
-                    def diff = sh(script: 'git diff --name-only HEAD^ HEAD', returnStdout: true).trim()
+                    def diff = sh 'git diff --name-only HEAD^ HEAD', returnStdout: true
                     if (diff.contains("${env.APP_DEVOPS}/") || diff.contains("${env.APP_DEVOPS}")) {
                         changedApps.add(env.APP_DEVOPS)
                     }
