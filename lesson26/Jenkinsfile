@@ -31,7 +31,7 @@ pipeline {
                 script {
                     def changedApps = []
                     // Определяем измененные приложения
-                    def diff = sh 'git diff --name-only HEAD^ HEAD', returnStdout: true
+                    def diff = sh 'git diff --name-only HEAD^ HEAD'
                     if (diff.contains("${env.APP_DEVOPS}/") || diff.contains("${env.APP_DEVOPS}")) {
                         changedApps.add(env.APP_DEVOPS)
                     }
@@ -59,7 +59,7 @@ pipeline {
                                 always {
                                     junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
                                     archiveArtifacts "${env.APP_DEVOPS}/target/*.jar"
-                                    stash includes: "${env.APP_DEVOPS}/target/*.jar", name: "devops-app"
+                                    //stash includes: "${env.APP_DEVOPS}/target/*.jar", name: "devops-app"
                                 }
                             }
                         }
@@ -80,7 +80,7 @@ pipeline {
                                 always {
                                     junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
                                     archiveArtifacts "${env.APP_JENKINS}/target/*.jar"
-                                    stash includes: "${env.APP_JENKINS}/target/*.jar", name: "jenkins-app"
+                                    //stash includes: "${env.APP_JENKINS}/target/*.jar", name: "jenkins-app"
                                 }
                             }
                         }
@@ -101,7 +101,7 @@ pipeline {
                                 always {
                                     junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
                                     archiveArtifacts "${env.APP_WORLD}/target/*.jar"
-                                    stash includes: "${env.APP_WORLD}/target/*.jar", name: "world-app"
+                                    //stash includes: "${env.APP_WORLD}/target/*.jar", name: "world-app"
                                 }
                             }
                         }
@@ -111,11 +111,11 @@ pipeline {
         }
     }
 
-    post {
+    /*post {
         always {
             unstash 'devops-app'
             unstash 'jenkins-app'
             unstash 'world-app'
         }
-    }
+    }*/
 }
