@@ -27,7 +27,7 @@ pipeline {
 
         stage('Build and Test') {
             parallel {
-                stage(env.APP_DEVOPS) {
+                stage({APP_DEVOPS}) {
                     steps {
                         dir(env.APP_DEVOPS) {
                             script {
@@ -43,7 +43,7 @@ pipeline {
                     }
                 }
 
-                stage(env.APP_JENKINS) {
+                stage({APP_JENKINS}) {
                     steps {
                         dir(env.APP_JENKINS) {
                             script {
@@ -59,7 +59,7 @@ pipeline {
                     }
                 }
 
-                stage(env.APP_WORLD) {
+                stage({APP_WORLD}) {
                     steps {
                         dir(env.APP_WORLD) {
                             script {
