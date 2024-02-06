@@ -28,10 +28,10 @@ pipeline {
         stage('Build and Test') {
 
             steps {
-                script {
+                //script {
                     def changedApps = []
                     // Определяем измененные приложения
-                    def diff = sh(script: 'git diff --name-only HEAD^ HEAD', returnStdout: true)
+                    /*def diff = sh(script: 'git diff --name-only HEAD^ HEAD', returnStdout: true)
                     if (diff != null) {
                         if (diff.contains("${env.APP_DEVOPS}/") || diff.contains("${env.APP_DEVOPS}")) {
                             changedApps.add(env.APP_DEVOPS)
@@ -42,13 +42,14 @@ pipeline {
                         if (diff.contains("${env.APP_WORLD}/") || diff.contains("${env.APP_WORLD}")) {
                             changedApps.add(env.APP_WORLD)
                         }
-                    }
+                    }*/
 
                     parallel {
                         stage(APP_DEVOPS) {
-                            when {
+                            /*when {
                                 expression { changedApps.contains(env.APP_DEVOPS) }
-                            }
+                            }*/
+                            when { changeset "${env.APP_DEVOPS}/*"}
                             steps {
                                 dir(env.APP_DEVOPS) {
                                     script {
@@ -67,9 +68,10 @@ pipeline {
                         }
 
                         stage(APP_JENKINS) {
-                            when {
+                            /*when {
                                 expression { changedApps.contains(env.APP_JENKINS) }
-                            }
+                            }*/
+                            when { changeset "${env.APP_JENKINS}/*"}
                             steps {
                                 dir(env.APP_JENKINS) {
                                     script {
@@ -88,9 +90,10 @@ pipeline {
                         }
 
                         stage(APP_WORLD) {
-                            when {
+                            /*when {
                                 expression { changedApps.contains(env.APP_WORLD) }
-                            }
+                            }*/
+                            when { changeset "${env.APP_WORLD}/*"}
                             steps {
                                 dir(env.APP_WORLD) {
                                     script {
@@ -108,7 +111,7 @@ pipeline {
                             }
                         }
                     }
-                }
+               // }
             }
         }
     }
