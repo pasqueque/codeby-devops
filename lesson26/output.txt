@@ -1,0 +1,433 @@
+Branch indexing
+
+Connecting to https://api.github.com using pasqueque/******
+
+Obtained lesson26/Jenkinsfile from c0e4c2eee850a3189e2c17a1978f5c21e95490ed
+
+[Pipeline] Start of Pipeline
+
+[Pipeline] node
+
+Running on Jenkins in /var/jenkins_home/workspace/multibranchpipeline_lesson26
+
+[Pipeline] {
+
+[Pipeline] stage
+
+[Pipeline] { (Declarative: Checkout SCM)
+
+[Pipeline] checkout
+
+The recommended git tool is: NONE
+
+using credential github-ssh
+
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/multibranchpipeline_lesson26/.git # timeout=10
+
+Fetching changes from the remote Git repository
+
+ > git config remote.origin.url https://github.com/pasqueque/codeby-devops.git # timeout=10
+
+Fetching without tags
+
+Fetching upstream changes from https://github.com/pasqueque/codeby-devops.git
+
+ > git --version # timeout=10
+
+ > git --version # 'git version 2.39.2'
+
+using GIT_ASKPASS to set credentials 
+
+ > git fetch --no-tags --force --progress -- https://github.com/pasqueque/codeby-devops.git +refs/heads/lesson26:refs/remotes/origin/lesson26 # timeout=10
+
+Checking out Revision c0e4c2eee850a3189e2c17a1978f5c21e95490ed (lesson26)
+
+ > git config core.sparsecheckout # timeout=10
+
+ > git checkout -f c0e4c2eee850a3189e2c17a1978f5c21e95490ed # timeout=10
+
+Commit message: "test build with added new file"
+
+ > git rev-list --no-walk 1f8c34eaa931b97f7240958d5dd6cc3640b8e07b # timeout=10
+
+[Pipeline] }
+
+[Pipeline] // stage
+
+[Pipeline] withEnv
+
+[Pipeline] {
+
+[Pipeline] isUnix
+
+[Pipeline] withEnv
+
+[Pipeline] {
+
+[Pipeline] sh
+
++ docker inspect -f . maven:3.9.0
+
+.
+
+[Pipeline] }
+
+[Pipeline] // withEnv
+
+[Pipeline] withDockerContainer
+
+Jenkins seems to be running inside container f0a99331d90e0075a3ceb1318aad5edeee3e397a286a360b18aa8370f5abcab7
+
+but /var/jenkins_home/workspace/multibranchpipeline_lesson26 could not be found among []
+
+but /var/jenkins_home/workspace/multibranchpipeline_lesson26@tmp could not be found among []
+
+$ docker run -t -d -u 1000:1000 -v /root/.m2:/root/.m2 -w /var/jenkins_home/workspace/multibranchpipeline_lesson26 -v /var/jenkins_home/workspace/multibranchpipeline_lesson26:/var/jenkins_home/workspace/multibranchpipeline_lesson26:rw,z -v /var/jenkins_home/workspace/multibranchpipeline_lesson26@tmp:/var/jenkins_home/workspace/multibranchpipeline_lesson26@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.9.0 cat
+
+$ docker top 8f6dcde9097fd560ab89798ade810eaff894c08ebfe85fc93f0e5a5d30e04a2f -eo pid,comm
+
+[Pipeline] {
+
+[Pipeline] withEnv
+
+[Pipeline] {
+
+[Pipeline] stage
+
+[Pipeline] { (Check out)
+
+[Pipeline] git
+
+The recommended git tool is: NONE
+
+using credential github-ssh
+
+Warning: JENKINS-30600: special launcher org.jenkinsci.plugins.docker.workflow.WithContainerStep$Decorator$1@16c0b504; decorates hudson.Launcher$LocalLauncher@1c64d0d0 will be ignored (a typical symptom is the Git executable not being run inside a designated container)
+
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/multibranchpipeline_lesson26/.git # timeout=10
+
+Fetching changes from the remote Git repository
+
+ > git config remote.origin.url https://github.com/pasqueque/codeby-devops # timeout=10
+
+Fetching upstream changes from https://github.com/pasqueque/codeby-devops
+
+ > git --version # timeout=10
+
+ > git --version # 'git version 2.39.2'
+
+using GIT_ASKPASS to set credentials 
+
+ > git fetch --tags --force --progress -- https://github.com/pasqueque/codeby-devops +refs/heads/*:refs/remotes/origin/* # timeout=10
+
+ > git rev-parse refs/remotes/origin/lesson26^{commit} # timeout=10
+
+Checking out Revision c0e4c2eee850a3189e2c17a1978f5c21e95490ed (refs/remotes/origin/lesson26)
+
+ > git config core.sparsecheckout # timeout=10
+
+ > git checkout -f c0e4c2eee850a3189e2c17a1978f5c21e95490ed # timeout=10
+
+ > git branch -a -v --no-abbrev # timeout=10
+
+ > git branch -D lesson26 # timeout=10
+
+ > git checkout -b lesson26 c0e4c2eee850a3189e2c17a1978f5c21e95490ed # timeout=10
+
+Commit message: "test build with added new file"
+
+[Pipeline] }
+
+[Pipeline] // stage
+
+[Pipeline] stage
+
+[Pipeline] { (Build and Test)
+
+[Pipeline] parallel
+
+[Pipeline] { (Branch: Build and test DevOps app)
+
+[Pipeline] { (Branch: Build and test Jenkins app)
+
+[Pipeline] { (Branch: Build and test World app)
+
+[Pipeline] stage
+
+[Pipeline] { (Build and test DevOps app)
+
+[Pipeline] stage
+
+[Pipeline] { (Build and test Jenkins app)
+
+[Pipeline] stage
+
+[Pipeline] { (Build and test World app)
+
+Stage "Build and test DevOps app" skipped due to when conditional
+
+[Pipeline] }
+
+Stage "Build and test World app" skipped due to when conditional
+
+[Pipeline] }
+
+[Pipeline] // stage
+
+[Pipeline] // stage
+
+[Pipeline] }
+
+[Pipeline] }
+
+[Pipeline] dir
+
+Running in /var/jenkins_home/workspace/multibranchpipeline_lesson26/lesson26/jenkins-app
+
+[Pipeline] {
+
+[Pipeline] script
+
+[Pipeline] {
+
+[Pipeline] sh
+
++ mvn -B -DskipTests clean package
+
+[INFO] Scanning for projects...
+
+[INFO] 
+
+[INFO] ----------------------< com.mycompany.app:my-app >----------------------
+
+[INFO] Building my-app 1.0-SNAPSHOT
+
+[INFO]   from pom.xml
+
+[INFO] --------------------------------[ jar ]---------------------------------
+
+[INFO] 
+
+[INFO] --- clean:3.2.0:clean (default-clean) @ my-app ---
+
+[INFO] Deleting /var/jenkins_home/workspace/multibranchpipeline_lesson26/lesson26/jenkins-app/target
+
+[INFO] 
+
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven) @ my-app ---
+
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+
+[INFO] 
+
+[INFO] --- resources:3.3.0:resources (default-resources) @ my-app ---
+
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/multibranchpipeline_lesson26/lesson26/jenkins-app/src/main/resources
+
+[INFO] 
+
+[INFO] --- compiler:3.12.1:compile (default-compile) @ my-app ---
+
+[INFO] Recompiling the module because of changed source code.
+
+[INFO] Compiling 1 source file with javac [debug target 1.8] to target/classes
+
+[WARNING] bootstrap class path not set in conjunction with -source 8
+
+[INFO] 
+
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ my-app ---
+
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/multibranchpipeline_lesson26/lesson26/jenkins-app/src/test/resources
+
+[INFO] 
+
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ my-app ---
+
+[INFO] Recompiling the module because of changed dependency.
+
+[INFO] Compiling 1 source file with javac [debug target 1.8] to target/test-classes
+
+[WARNING] bootstrap class path not set in conjunction with -source 8
+
+[INFO] 
+
+[INFO] --- surefire:3.0.0-M8:test (default-test) @ my-app ---
+
+[INFO] Tests are skipped.
+
+[INFO] 
+
+[INFO] --- jar:3.3.0:jar (default-jar) @ my-app ---
+
+[INFO] Building jar: /var/jenkins_home/workspace/multibranchpipeline_lesson26/lesson26/jenkins-app/target/my-app-1.0-SNAPSHOT.jar
+
+[INFO] ------------------------------------------------------------------------
+
+[INFO] BUILD SUCCESS
+
+[INFO] ------------------------------------------------------------------------
+
+[INFO] Total time:  2.212 s
+
+[INFO] Finished at: 2024-02-06T20:47:42Z
+
+[INFO] ------------------------------------------------------------------------
+
+[Pipeline] sh
+
++ mvn test
+
+[INFO] Scanning for projects...
+
+[INFO] 
+
+[INFO] ----------------------< com.mycompany.app:my-app >----------------------
+
+[INFO] Building my-app 1.0-SNAPSHOT
+
+[INFO]   from pom.xml
+
+[INFO] --------------------------------[ jar ]---------------------------------
+
+[INFO] 
+
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven) @ my-app ---
+
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+
+[INFO] 
+
+[INFO] --- resources:3.3.0:resources (default-resources) @ my-app ---
+
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/multibranchpipeline_lesson26/lesson26/jenkins-app/src/main/resources
+
+[INFO] 
+
+[INFO] --- compiler:3.12.1:compile (default-compile) @ my-app ---
+
+[INFO] Nothing to compile - all classes are up to date.
+
+[INFO] 
+
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ my-app ---
+
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/multibranchpipeline_lesson26/lesson26/jenkins-app/src/test/resources
+
+[INFO] 
+
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ my-app ---
+
+[INFO] Nothing to compile - all classes are up to date.
+
+[INFO] 
+
+[INFO] --- surefire:3.0.0-M8:test (default-test) @ my-app ---
+
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+
+[INFO] 
+
+[INFO] -------------------------------------------------------
+
+[INFO]  T E S T S
+
+[INFO] -------------------------------------------------------
+
+[INFO] Running com.mycompany.app.AppTest
+
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 s - in com.mycompany.app.AppTest
+
+[INFO] 
+
+[INFO] Results:
+
+[INFO] 
+
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+
+[INFO] ------------------------------------------------------------------------
+
+[INFO] BUILD SUCCESS
+
+[INFO] ------------------------------------------------------------------------
+
+[INFO] Total time:  2.071 s
+
+[INFO] Finished at: 2024-02-06T20:47:47Z
+
+[INFO] ------------------------------------------------------------------------
+
+[Pipeline] }
+
+[Pipeline] // script
+
+[Pipeline] }
+
+[Pipeline] // dir
+
+Post stage
+
+[Pipeline] junit
+
+Recording test results
+
+[Checks API] No suitable checks publisher found.
+
+[Pipeline] archiveArtifacts
+
+Archiving artifacts
+
+[Pipeline] }
+
+[Pipeline] // stage
+
+[Pipeline] }
+
+[Pipeline] // parallel
+
+[Pipeline] }
+
+[Pipeline] // stage
+
+[Pipeline] }
+
+[Pipeline] // withEnv
+
+[Pipeline] }
+
+$ docker stop --time=1 8f6dcde9097fd560ab89798ade810eaff894c08ebfe85fc93f0e5a5d30e04a2f
+
+$ docker rm -f --volumes 8f6dcde9097fd560ab89798ade810eaff894c08ebfe85fc93f0e5a5d30e04a2f
+
+[Pipeline] // withDockerContainer
+
+[Pipeline] }
+
+[Pipeline] // withEnv
+
+[Pipeline] }
+
+[Pipeline] // node
+
+[Pipeline] End of Pipeline
+
+
+
+Could not update commit status, please check if your scan credentials belong to a member of the organization or a collaborator of the repository and repo:status scope is selected
+
+
+
+
+
+GitHub has been notified of this commit’s build result
+
+
+
+Finished: SUCCESS
