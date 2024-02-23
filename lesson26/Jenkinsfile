@@ -95,7 +95,7 @@ pipeline {
                         }
                     }
                 }
-                stage('World app')
+                stage('World app'){
                     stages{
                         stage('Build and test World app') {
                             when { changeset "${env.APP_WORLD}/src/main/java/com/mycompany/app/*" }
@@ -130,6 +130,7 @@ pipeline {
                             }
                         }
                     }
+                }
             }
         }                        
     }
