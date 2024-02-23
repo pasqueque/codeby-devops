@@ -23,60 +23,114 @@ pipeline {
 
         stage('Build and Test') {
             parallel {
-                stage('Build and test DevOps app') {
-                    when { changeset "${env.APP_DEVOPS}/src/main/java/com/mycompany/app/*" }
-                    steps {
-                        dir(env.APP_DEVOPS) {
-                            script {
-                                sh 'mvn -B -DskipTests clean package'
-                                sh 'mvn test'
+                stage('DevOps app') {
+                    stages {
+                        stage('Build and test DevOps app') {
+                            when { changeset "${env.APP_DEVOPS}/src/main/java/com/mycompany/app/*" }
+                            steps {
+                                dir(env.APP_DEVOPS) {
+                                    script {
+                                        sh 'mvn -B -DskipTests clean package'
+                                        sh 'mvn test'
+                                    }
+                                }
+                            }
+                            post {
+                                always {
+                                    junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
+                                    archiveArtifacts "${env.APP_DEVOPS}/target/*.jar"
+                                }
+                            }
+                        }
+                        stage('SonarQube Analysis DevOps app') {
+                            steps {
+                                dir(env.APP_DEVOPS) {
+                                    withSonarQubeEnv(credentialsId: 'sonar', installationName: 'SonarServer') {
+                                        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=maven -Dsonar.projectName='maven'"
+                                    }
+                                }
+                            }
+                        }
+                        stage('SonarQube Quality Gate DevOps app') {
+                            steps {
+                                sleep 60
+                                waitForQualityGate abortPipeline: true
                             }
                         }
                     }
-                    post {
-                        always {
-                            junit("${env.APP_DEVOPS}/target/surefire-reports/*.xml")
-                            archiveArtifacts "${env.APP_DEVOPS}/target/*.jar"
-                        }
-                    }
                 }
-
-                stage('Build and test Jenkins app') {
-                    when { changeset "${env.APP_JENKINS}/src/main/java/com/mycompany/app/*" }
-                    steps {
-                        dir(env.APP_JENKINS) {
-                            script {
-                                sh 'mvn -B -DskipTests clean package'
-                                sh 'mvn test'
+                stage('Jenkins app'){
+                    stages {               
+                        stage('Build and test Jenkins app') {
+                            when { changeset "${env.APP_JENKINS}/src/main/java/com/mycompany/app/*" }
+                            steps {
+                                dir(env.APP_JENKINS) {
+                                    script {
+                                        sh 'mvn -B -DskipTests clean package'
+                                        sh 'mvn test'
+                                    }
+                                }
+                            }
+                            post {
+                                always {
+                                    junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
+                                    archiveArtifacts "${env.APP_JENKINS}/target/*.jar"
+                                }
+                            }
+                        }
+                        stage('SonarQube Analysis Jenkins app') {
+                            steps {
+                                dir(env.APP_JENKINS) {
+                                    withSonarQubeEnv(credentialsId: 'sonar', installationName: 'SonarServer') {
+                                        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=maven -Dsonar.projectName='maven'"
+                                    }
+                                }
+                            }
+                        }
+                        stage('SonarQube Quality Gate Jenkins app') {
+                            steps {
+                                sleep 60
+                                waitForQualityGate abortPipeline: true
                             }
                         }
                     }
-                    post {
-                        always {
-                            junit("${env.APP_JENKINS}/target/surefire-reports/*.xml")
-                            archiveArtifacts "${env.APP_JENKINS}/target/*.jar"
-                        }
-                    }
                 }
-
-                stage('Build and test World app') {
-                    when { changeset "${env.APP_WORLD}/src/main/java/com/mycompany/app/*" }
-                    steps {
-                        dir(env.APP_WORLD) {
-                            script {
-                                sh 'mvn -B -DskipTests clean package'
-                                sh 'mvn test'
+                stage('World app')
+                    stages{
+                        stage('Build and test World app') {
+                            when { changeset "${env.APP_WORLD}/src/main/java/com/mycompany/app/*" }
+                            steps {
+                                dir(env.APP_WORLD) {
+                                    script {
+                                        sh 'mvn -B -DskipTests clean package'
+                                        sh 'mvn test'
+                                    }
+                                }
+                            }
+                            post {
+                                always {
+                                    junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
+                                    archiveArtifacts "${env.APP_WORLD}/target/*.jar"
+                                }
+                            }
+                        }
+                        stage('SonarQube Analysis WORLD app') {
+                            steps {
+                                dir(env.APP_WORLD) {
+                                    withSonarQubeEnv(credentialsId: 'sonar', installationName: 'SonarServer') {
+                                        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=maven -Dsonar.projectName='maven'"
+                                    }
+                                }
+                            }
+                        }
+                        stage('SonarQube Quality Gate WORLD app') {
+                            steps {
+                                sleep 60
+                                waitForQualityGate abortPipeline: true
                             }
                         }
                     }
-                    post {
-                        always {
-                            junit("${env.APP_WORLD}/target/surefire-reports/*.xml")
-                            archiveArtifacts "${env.APP_WORLD}/target/*.jar"
-                        }
-                    }
-                }
             }
-        }
+        }                        
     }
 }
